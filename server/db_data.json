@@ -1,0 +1,1429 @@
+{
+  "users": [
+    {
+      "id": "usr_1786859408122_wkryjr",
+      "name": "Zeeshan Khan",
+      "phone": "9876543210",
+      "email": "zeeshan@fooddash.in",
+      "avatar": "👑",
+      "favorites": [],
+      "addresses": [
+        {
+          "id": "addr_1786868324606_409",
+          "label": "Home",
+          "icon": "🏠",
+          "houseNo": "Flat 402, Sunshine Heights",
+          "street": "Road No 36",
+          "area": "Jubilee Hills",
+          "city": "Hyderabad",
+          "pincode": "500033",
+          "landmark": "Near Metro Station",
+          "phone": "9876543210",
+          "isDefault": true
+        },
+        {
+          "id": "addr_1786868300569_718",
+          "label": "Work",
+          "icon": "💼",
+          "houseNo": "Cyber Towers 5th Floor",
+          "street": "HITEC City Main Road",
+          "area": "HITEC City",
+          "city": "Hyderabad",
+          "pincode": "500081",
+          "landmark": "Opposite Cyber Pearl",
+          "phone": "9876543210",
+          "isDefault": false
+        },
+        {
+          "id": "addr_1786868300553_628",
+          "label": "Home",
+          "icon": "🏠",
+          "houseNo": "Flat 402, Sunshine Heights",
+          "street": "Road No 36",
+          "area": "Jubilee Hills",
+          "city": "Hyderabad",
+          "pincode": "500033",
+          "landmark": "Near Metro Station",
+          "phone": "9876543210",
+          "isDefault": false
+        }
+      ],
+      "createdAt": "2026-08-16T05:50:08.122Z",
+      "settings": {
+        "vegOnly": false,
+        "notifications": true,
+        "smsUpdates": true
+      }
+    },
+    {
+      "id": "usr_1786859408133_66pxs6",
+      "name": "Zeeshan Ali",
+      "phone": null,
+      "email": "zeeshan@example.com",
+      "avatar": "🧑‍🍳",
+      "favorites": [],
+      "addresses": [],
+      "createdAt": "2026-08-16T05:50:08.133Z",
+      "googleId": "google_mock_id"
+    },
+    {
+      "id": "usr_1786859551441_ma1baa",
+      "name": "Priya Sharma",
+      "phone": null,
+      "email": "priya.sharma@gmail.com",
+      "avatar": "👩‍💼",
+      "favorites": [],
+      "addresses": [],
+      "createdAt": "2026-08-16T05:52:31.441Z",
+      "googleId": "google_mock_id"
+    },
+    {
+      "id": "usr_1786860451176_7ixfrv",
+      "name": "Zeeshan",
+      "phone": "7569748912",
+      "email": "saeedzeeshan2003@gmail.com",
+      "avatar": "🧑‍💻",
+      "favorites": [],
+      "addresses": [],
+      "createdAt": "2026-08-16T06:07:31.176Z",
+      "googleId": "google_mock_id"
+    },
+    {
+      "id": "usr_1786865841869_6in37i",
+      "name": "Foodie +918912",
+      "phone": "7569748912",
+      "email": null,
+      "avatar": "🥑",
+      "favorites": [],
+      "addresses": [],
+      "createdAt": "2026-08-16T07:37:21.869Z"
+    },
+    {
+      "id": "usr_1787053947061_965",
+      "name": "Foodie +918912",
+      "phone": "7567948912",
+      "email": "",
+      "addresses": [],
+      "createdAt": "2026-08-18T11:52:27.061Z",
+      "avatar": "🥑"
+    }
+  ],
+  "orders": [
+    {
+      "id": "FD-026431-683",
+      "createdAt": "2026-08-18T11:53:46.431Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-18T11:53:46.431Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 17.49602295,
+        "lng": 78.39001584999998,
+        "address": "Ward 114 KPHB Colony, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-18T11:53:46.431Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Foodie +918912",
+      "userPhone": "7567948912",
+      "userEmail": "",
+      "restaurantId": 3,
+      "restaurantName": "Hotel Shadab",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 301,
+          "name": "Shadab Special Mutton Biryani",
+          "price": 390,
+          "desc": "The legendary Old City dum biryani with ultra-tender lamb and aromatic saffron long-grain rice",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 390,
+          "customKey": "301-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 390,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 390,
+        "deliveryFee": 0,
+        "tax": 20,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 416
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-621515-143",
+      "createdAt": "2026-08-18T04:50:21.515Z",
+      "status": "rider_assigned",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-18T04:50:21.515Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-18T04:50:41.349Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 17.4107,
+        "lng": 78.4614,
+        "address": "Khairatabad, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-18T04:50:21.515Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 14,
+      "restaurantName": "Domino's Pizza (Khairatabad)",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 5003,
+          "name": "Non-Veg Supreme Pizza",
+          "price": 449,
+          "desc": "Loaded with black olives, grilled mushrooms, pepper barbecue chicken, peri-peri chicken",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 812,
+          "customKey": "5003-{\"size\":\"Jumbo Feast (+65%)\",\"spice\":\"Fiery Hot 🌶️🔥\",\"addons\":[\"cheese\"],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Jumbo Feast (+65%)",
+            "spice": "Fiery Hot 🌶️🔥",
+            "addons": [
+              "Extra Molten Mozzarella"
+            ],
+            "instructions": "",
+            "totalPrice": 812,
+            "macros": {
+              "calories": 882,
+              "protein": 55,
+              "carbs": 69,
+              "fats": 38
+            },
+            "options": {
+              "size": "Jumbo Feast (+65%)",
+              "spice": "Fiery Hot 🌶️🔥",
+              "addons": [
+                "cheese"
+              ],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 882,
+            "protein": 55,
+            "carbs": 69,
+            "fats": 38
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 812,
+        "deliveryFee": 0,
+        "tax": 41,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 859
+      },
+      "deliveryAddress": "Khairatabad, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-241025-180",
+      "createdAt": "2026-08-17T16:47:21.025Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-17T16:47:21.026Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 17.496056166666666,
+        "lng": 78.38992416666667,
+        "address": "Ward 114 KPHB Colony, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-17T16:47:21.026Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 15,
+      "restaurantName": "McDonald's (Ward 114 KPHB Colony)",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 5101,
+          "name": "McSpicy Chicken Burger",
+          "price": 199,
+          "desc": "Tender and juicy chicken patty coated in spicy crispy batter, topped with creamy mayo and lettuce",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 199,
+          "customKey": "5101-{\"size\":\"Regular\",\"spice\":\"Medium\",\"addons\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "spice": "Medium",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 199,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "spice": "Medium",
+              "addons": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 199,
+        "deliveryFee": 25,
+        "tax": 10,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 100,
+        "grandTotal": 140
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "netbanking",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-487047-302",
+      "createdAt": "2026-08-17T14:38:07.047Z",
+      "status": "rider_assigned",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-17T14:38:07.048Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-17T15:30:40.575Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 17.393,
+        "lng": 78.4867
+      },
+      "customerLocation": {
+        "lat": 17.398,
+        "lng": 78.492,
+        "address": "Banjara Hills"
+      },
+      "driverLocation": {
+        "lat": 17.395,
+        "lng": 78.49,
+        "speed": 34,
+        "heading": 90,
+        "updatedAt": "2026-08-17T14:38:07.049Z"
+      },
+      "restaurantName": "Bawarchi",
+      "items": [
+        {
+          "id": 1,
+          "name": "Hyderabadi Biryani",
+          "price": 340,
+          "qty": 1
+        }
+      ],
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-340491-881",
+      "createdAt": "2026-08-16T16:05:40.491Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T16:05:40.491Z"
+        }
+      ],
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "restaurantId": 4,
+      "restaurantName": "Pista House",
+      "items": [
+        {
+          "id": 402,
+          "name": "Zafrani Chicken Biryani",
+          "price": 330,
+          "desc": "Saffron infused dum biryani with succulent chicken pieces",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 330,
+          "customKey": "402-{\"size\":\"Regular\",\"spice\":\"Medium\",\"addons\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "spice": "Medium",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 330,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "spice": "Medium",
+              "addons": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 330,
+        "deliveryFee": 0,
+        "tax": 17,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 353
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-154230-802",
+      "createdAt": "2026-08-16T15:29:14.230Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T15:29:14.230Z"
+        }
+      ],
+      "userId": "guest_1786894154230",
+      "userName": "Guest Foodie",
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden",
+      "items": [
+        {
+          "name": "Royal Dum Biryani",
+          "price": 320,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 350
+      },
+      "deliveryAddress": "Flat 402, Sunshine Heights",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-441784-153",
+      "createdAt": "2026-08-16T08:20:41.784Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T08:20:41.785Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T08:21:02.605Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ramesh Kumar",
+          "time": "2026-08-16T08:21:54.708Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "label": "Status updated to out_for_delivery",
+          "time": "2026-08-16T08:22:03.390Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-16T08:22:49.895Z"
+        }
+      ],
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "restaurantId": 4,
+      "restaurantName": "Pista House",
+      "items": [
+        {
+          "id": 402,
+          "name": "Zafrani Chicken Biryani",
+          "price": 330,
+          "desc": "Saffron infused dum biryani with succulent chicken pieces",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "/images/rest1.jpg",
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 330,
+        "deliveryFee": 0,
+        "tax": 17,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 50,
+        "grandTotal": 303
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-324638-263",
+      "createdAt": "2026-08-16T08:18:44.638Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T08:18:44.638Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T08:18:44.647Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ravi Teja",
+          "time": "2026-08-16T08:18:44.659Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "label": "Order picked up from restaurant kitchen. On the way!",
+          "time": "2026-08-16T08:18:44.672Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-16T08:18:44.682Z"
+        }
+      ],
+      "userId": "usr_1786859408122_wkryjr",
+      "userName": "Zeeshan Khan",
+      "restaurantId": 1,
+      "restaurantName": "Bawarchi Restaurant",
+      "items": [
+        {
+          "id": 101,
+          "name": "Special Hyderabadi Chicken Dum Biryani",
+          "price": 340,
+          "quantity": 2
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "UPI",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ravi Teja",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-300600-662",
+      "createdAt": "2026-08-16T08:18:20.600Z",
+      "status": "rider_assigned",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T08:18:20.600Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T08:18:20.608Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ramesh",
+          "time": "2026-08-16T08:18:20.621Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Status updated to rider_assigned",
+          "time": "2026-08-16T08:18:20.631Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Status updated to rider_assigned",
+          "time": "2026-08-16T08:18:20.643Z"
+        }
+      ],
+      "userId": "usr_1786859408122_wkryjr",
+      "userName": "Zeeshan Khan",
+      "restaurantId": 1,
+      "restaurantName": "Bawarchi Restaurant",
+      "items": [
+        {
+          "id": 101,
+          "name": "Special Hyderabadi Chicken Dum Biryani",
+          "price": 340,
+          "quantity": 2
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "UPI",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-912595-495",
+      "createdAt": "2026-08-16T07:38:32.595Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T07:38:32.595Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ramesh Kumar",
+          "time": "2026-08-16T07:38:58.332Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T07:39:32.900Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ramesh Kumar",
+          "time": "2026-08-16T07:40:10.572Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "label": "Order picked up from restaurant kitchen. On the way!",
+          "time": "2026-08-16T07:40:23.221Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-16T07:40:26.387Z"
+        }
+      ],
+      "userId": "usr_1786865841869_6in37i",
+      "userName": "Foodie +918912",
+      "restaurantId": 5,
+      "restaurantName": "Dosa Factory (Madhapur)",
+      "items": [
+        {
+          "id": 501,
+          "name": "Masala Dosa",
+          "price": 120,
+          "desc": "Crispy rice crepe filled with spiced potato masala",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "/images/rest5.jpg",
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 120,
+        "deliveryFee": 25,
+        "tax": 6,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 157
+      },
+      "deliveryAddress": "Hyderabad, Telangana",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-575640-602",
+      "createdAt": "2026-08-16T07:32:55.640Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T07:32:55.640Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T07:32:55.654Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Ramesh Kumar",
+          "time": "2026-08-16T07:32:55.659Z"
+        },
+        {
+          "status": "out_for_delivery",
+          "label": "Order picked up from restaurant kitchen. On the way!",
+          "time": "2026-08-16T07:32:55.672Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-16T07:32:55.686Z"
+        }
+      ],
+      "userId": "guest_1786865575640",
+      "userName": "Guest Foodie",
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden",
+      "items": [
+        {
+          "id": 101,
+          "name": "Paneer Butter Masala",
+          "price": 280,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 280,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 300
+      },
+      "deliveryAddress": "Indiranagar 100ft Road, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-275124-749",
+      "createdAt": "2026-08-16T07:27:55.124Z",
+      "status": "picked_up",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T07:27:55.124Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T07:27:55.136Z"
+        },
+        {
+          "status": "picked_up",
+          "label": "Rider accepted & picked up food",
+          "time": "2026-08-16T16:00:37.862Z"
+        }
+      ],
+      "userId": "guest_1786865275124",
+      "userName": "Guest Foodie",
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden",
+      "items": [
+        {
+          "id": 101,
+          "name": "Paneer Butter Masala",
+          "price": 280,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 280,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 300
+      },
+      "deliveryAddress": "Indiranagar 100ft Road, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-911373-151",
+      "createdAt": "2026-08-16T07:05:11.373Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T07:05:11.373Z"
+        }
+      ],
+      "userId": "guest_1786863911373",
+      "userName": "Guest Foodie",
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden (Indiranagar)",
+      "items": [
+        {
+          "id": 101,
+          "name": "Butter Chicken",
+          "price": 320,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 320,
+        "deliveryFee": 0,
+        "tax": 16,
+        "platformFee": 6,
+        "tip": 20,
+        "discount": 50,
+        "grandTotal": 312
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-474368-518",
+      "createdAt": "2026-08-16T06:41:14.368Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T06:41:14.368Z"
+        }
+      ],
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "restaurantId": 2,
+      "restaurantName": "Pizza Paradise (Koramangala 4th Block)",
+      "items": [
+        {
+          "id": 201,
+          "name": "Margherita Pizza",
+          "price": 249,
+          "desc": "Classic pizza with fresh mozzarella, basil, and San Marzano tomato sauce",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "/images/rest2.jpg",
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 249,
+        "deliveryFee": 0,
+        "tax": 12,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 267
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-748560-609",
+      "createdAt": "2026-08-16T06:29:08.560Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T06:29:08.560Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status updated to preparing",
+          "time": "2026-08-16T06:29:08.568Z"
+        },
+        {
+          "status": "picked_up",
+          "label": "Rider accepted & picked up food",
+          "time": "2026-08-16T16:06:16.850Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer",
+          "time": "2026-08-16T16:06:43.234Z"
+        }
+      ],
+      "userId": "guest_1786861748560",
+      "userName": "Guest Foodie",
+      "restaurantId": 1355,
+      "restaurantName": "Chef Royal Palace",
+      "items": [
+        {
+          "id": 48555,
+          "name": "Royal Saffron Biryani",
+          "price": 380,
+          "qty": 2
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 810
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-408145-171",
+      "createdAt": "2026-08-16T05:50:08.145Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-16T05:50:08.145Z"
+        }
+      ],
+      "userId": "usr_1786859408122_wkryjr",
+      "userName": "Foodie +913210",
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden (Bandra West)",
+      "items": [
+        {
+          "id": 101,
+          "name": "Butter Chicken",
+          "price": 320,
+          "qty": 2
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 676
+      },
+      "deliveryAddress": "Bandra West, Mumbai",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    }
+  ],
+  "reservations": [
+    {
+      "id": "TB-288547-277",
+      "createdAt": "2026-08-17T13:28:08.547Z",
+      "status": "seated",
+      "depositPaid": 0,
+      "preOrderedItems": [
+        {
+          "id": 101,
+          "name": "Butter Chicken",
+          "price": 320,
+          "quantity": 2
+        },
+        {
+          "id": 102,
+          "name": "Hyderabadi Biryani",
+          "price": 280,
+          "quantity": 1
+        }
+      ],
+      "preOrderTotal": 920,
+      "qrCodeData": "FOODDASH-RESERVATION-TB-288547-277",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Reservation Confirmed & Table Reserved",
+          "time": "2026-08-17T13:28:08.548Z"
+        },
+        {
+          "status": "seated",
+          "label": "Guest arrived at table",
+          "time": "2026-08-17T13:28:08.549Z"
+        }
+      ],
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden",
+      "restaurantAddress": "123, 5th Cross, Koramangala, Bangalore",
+      "date": "2026-08-17",
+      "timeSlot": "7:30 PM",
+      "guests": 4,
+      "tableIds": [
+        "T-2"
+      ],
+      "tableNames": "Window View Booth (Window Side)",
+      "occasion": "Birthday",
+      "specialRequests": "Window seat with birthday candle please",
+      "customerName": "Aarav Sharma",
+      "customerPhone": "9876543210",
+      "customerEmail": "aarav@example.com",
+      "userId": "usr_test_123"
+    },
+    {
+      "id": "TB-219981-376",
+      "createdAt": "2026-08-17T13:10:19.981Z",
+      "status": "seated",
+      "depositPaid": 0,
+      "preOrderedItems": [
+        {
+          "id": 101,
+          "name": "Butter Chicken",
+          "price": 320,
+          "quantity": 2
+        },
+        {
+          "id": 102,
+          "name": "Hyderabadi Biryani",
+          "price": 280,
+          "quantity": 1
+        }
+      ],
+      "preOrderTotal": 920,
+      "qrCodeData": "FOODDASH-RESERVATION-TB-219981-376",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Reservation Confirmed & Table Reserved",
+          "time": "2026-08-17T13:10:19.985Z"
+        },
+        {
+          "status": "seated",
+          "label": "Guest arrived at table",
+          "time": "2026-08-17T13:10:19.987Z"
+        }
+      ],
+      "restaurantId": 1,
+      "restaurantName": "Spice Garden",
+      "restaurantAddress": "123, 5th Cross, Koramangala, Bangalore",
+      "date": "2026-08-17",
+      "timeSlot": "7:30 PM",
+      "guests": 4,
+      "tableIds": [
+        "T-2"
+      ],
+      "tableNames": "Window View Booth (Window Side)",
+      "occasion": "Birthday",
+      "specialRequests": "Window seat with birthday candle please",
+      "customerName": "Aarav Sharma",
+      "customerPhone": "9876543210",
+      "customerEmail": "aarav@example.com",
+      "userId": "usr_test_123"
+    }
+  ],
+  "drivers": [
+    {
+      "id": "dr_051955_751",
+      "name": "Siddharth Rao",
+      "phone": "+91 99001 22334",
+      "email": "",
+      "city": "Hyderabad",
+      "zone": "Hyderabad Central Zone",
+      "vehicleType": "Electric Scooter",
+      "vehicleNumber": "TS-07-FD-5544",
+      "licenseNumber": "DL9999999999",
+      "rating": 5,
+      "totalTrips": 1,
+      "totalEarnings": 560,
+      "status": "online",
+      "joinedAt": "2026-08-17T14:47:31.955Z",
+      "avatar": "🛵",
+      "isTopPerformer": false
+    },
+    {
+      "id": "dr_101",
+      "name": "Ramesh Kumar",
+      "phone": "+91 98765 43210",
+      "email": "ramesh.kumar@fooddash.fleet",
+      "city": "Bangalore",
+      "zone": "Central Metro Hub (Koramangala / Indiranagar)",
+      "vehicleType": "Electric Scooter",
+      "vehicleNumber": "KA-01-FD-2026",
+      "licenseNumber": "KA012021004921",
+      "rating": 4.98,
+      "totalTrips": 142,
+      "totalEarnings": 8420,
+      "status": "online",
+      "joinedAt": "2025-11-10T08:30:00.000Z",
+      "avatar": "🛵",
+      "isTopPerformer": true
+    },
+    {
+      "id": "dr_102",
+      "name": "Vikram Singh",
+      "phone": "+91 98112 34567",
+      "email": "vikram.singh@fooddash.fleet",
+      "city": "Mumbai",
+      "zone": "Western Suburbs (Bandra / Andheri)",
+      "vehicleType": "Ather 450X EV",
+      "vehicleNumber": "MH-02-FD-8819",
+      "licenseNumber": "MH022020008831",
+      "rating": 4.95,
+      "totalTrips": 98,
+      "totalEarnings": 6150,
+      "status": "online",
+      "joinedAt": "2026-01-15T09:00:00.000Z",
+      "avatar": "⚡",
+      "isTopPerformer": true
+    },
+    {
+      "id": "dr_103",
+      "name": "Priya Sharma",
+      "phone": "+91 98223 67890",
+      "email": "priya.sharma@fooddash.fleet",
+      "city": "Delhi NCR",
+      "zone": "Central / South Delhi (Connaught / Hauz Khas)",
+      "vehicleType": "TVS iQube Electric",
+      "vehicleNumber": "DL-03-FD-4421",
+      "licenseNumber": "DL032022001192",
+      "rating": 4.97,
+      "totalTrips": 116,
+      "totalEarnings": 7280,
+      "status": "online",
+      "joinedAt": "2026-02-01T10:00:00.000Z",
+      "avatar": "🛵",
+      "isTopPerformer": true
+    },
+    {
+      "id": "dr_104",
+      "name": "Mohammed Farhan",
+      "phone": "+91 98334 11223",
+      "email": "m.farhan@fooddash.fleet",
+      "city": "Hyderabad",
+      "zone": "Hitec City / Jubilee Hills / Gachibowli",
+      "vehicleType": "Ola S1 Pro",
+      "vehicleNumber": "TS-09-FD-7732",
+      "licenseNumber": "TS092019005541",
+      "rating": 4.99,
+      "totalTrips": 185,
+      "totalEarnings": 11300,
+      "status": "online",
+      "joinedAt": "2025-09-12T07:15:00.000Z",
+      "avatar": "🚀",
+      "isTopPerformer": true
+    },
+    {
+      "id": "dr_105",
+      "name": "Aniket Deshmukh",
+      "phone": "+91 98445 99887",
+      "email": "aniket.d@fooddash.fleet",
+      "city": "Pune",
+      "zone": "Koregaon Park / Viman Nagar / Baner",
+      "vehicleType": "Bajaj Chetak EV",
+      "vehicleNumber": "PN-12-FD-9941",
+      "licenseNumber": "MH122023007781",
+      "rating": 4.92,
+      "totalTrips": 74,
+      "totalEarnings": 4800,
+      "status": "online",
+      "joinedAt": "2026-03-05T11:45:00.000Z",
+      "avatar": "🛵",
+      "isTopPerformer": false
+    }
+  ],
+  "outletSettings": {
+    "1": {
+      "prepTime": "35 min",
+      "surgeMultiplier": 1.2,
+      "isOutletOpen": true,
+      "rushMode": false,
+      "rainSurge": false,
+      "outOfStockItemIds": [
+        101
+      ]
+    }
+  },
+  "reviews": [
+    {
+      "id": "rev_1",
+      "restaurantId": 1,
+      "userName": "Aarav Sharma",
+      "rating": 5,
+      "date": "2 days ago",
+      "comment": "The Butter Chicken and Garlic Naan were out of this world! Piping hot and delivered in just 22 mins.",
+      "dishes": [
+        "Butter Chicken",
+        "Garlic Naan"
+      ],
+      "likes": 14
+    },
+    {
+      "id": "rev_2",
+      "restaurantId": 1,
+      "userName": "Meera Patel",
+      "rating": 4,
+      "date": "5 days ago",
+      "comment": "Authentic flavors and generous portions. Hyderabadi Biryani had the perfect aroma.",
+      "dishes": [
+        "Hyderabadi Biryani"
+      ],
+      "likes": 8
+    },
+    {
+      "id": "rev_3",
+      "restaurantId": 2,
+      "userName": "Rohan Verma",
+      "rating": 5,
+      "date": "Yesterday",
+      "comment": "Crispy thin crust pepperoni pizza! Best in town by far. Cheese pull was amazing.",
+      "dishes": [
+        "Pepperoni Supreme"
+      ],
+      "likes": 21
+    },
+    {
+      "id": "rev_4",
+      "restaurantId": 3,
+      "userName": "Ananya Gupta",
+      "rating": 5,
+      "date": "3 days ago",
+      "comment": "Super juicy smash burger and crispy fries. Packaging kept everything crunchy.",
+      "dishes": [
+        "Classic Smash Burger",
+        "Loaded Fries"
+      ],
+      "likes": 19
+    },
+    {
+      "id": "rev_5",
+      "restaurantId": 5,
+      "userName": "Karthik Raja",
+      "rating": 5,
+      "date": "Today",
+      "comment": "Crispy Mysore Masala Dosa with heavenly filter coffee. Reminds me of traditional home cooking.",
+      "dishes": [
+        "Mysore Masala Dosa",
+        "Filter Coffee"
+      ],
+      "likes": 27
+    }
+  ],
+  "customRestaurants": []
+}

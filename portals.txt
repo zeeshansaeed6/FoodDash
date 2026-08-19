@@ -1,0 +1,5 @@
+┌─────────────────────────┐      ┌─────────────────────────┐      ┌─────────────────────────┐
+│   🛍️ CUSTOMER PORTAL    │      │  🧑‍🍳 RESTAURANT PARTNER  │      │ 🛵 DELIVERY FLEET (RIDER)│
+│  (Browse, Cart, Order,  │ ───► │  (Live Kitchen Stream,  │ ───► │  (Accept Tasks, Pick Up  │
+│   Pay & Live GPS Track) │      │  Menu & Dish Manager)   │      │   & Deliver to Doorstep)│
+└─────────────────────────┘      └─────────────────────────┘      └─────────────────────────┘

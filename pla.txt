@@ -1,0 +1,27 @@
+FOOD_DELIVERY/
+├── server/                      # 🟢 NEW: Express.js Backend
+│   ├── index.js                 # Server entry point (Port 5000)
+│   ├── db.js                    # File-backed database & seed data
+│   ├── routes/
+│   │   ├── auth.js              # Phone OTP, Google auth, Email/password, Session
+│   │   ├── locations.js         # Multi-city search, reverse geocoding, city feeds
+│   │   ├── restaurants.js       # Dynamic restaurant search, filtering & menus
+│   │   ├── orders.js            # Order placement, tracking & order history
+│   │   └── user.js              # User profile, saved addresses & favorites
+│   └── middleware/
+│       └── authMiddleware.js    # JWT token verification
+├── src/                         # 🔵 Frontend (Vite)
+│   ├── api/
+│   │   └── client.js            # Unified API client for backend communication
+│   ├── components/
+│   │   ├── Navbar.js            # User profile dropdown, location display
+│   │   ├── LoginModal.js        # Phone OTP step-by-step UI + Google login
+│   │   ├── LocationModal.js     # Multi-city location picker + live city search
+│   │   ├── OrderHistoryModal.js # View past orders & re-order
+│   │   └── CartDrawer.js        # Submits order to backend API
+│   ├── pages/
+│   │   ├── HomePage.js          # Fetches restaurants dynamically per city
+│   │   └── RestaurantPage.js    # Fetches restaurant & menu from backend
+│   └── ...
+├── vite.config.js               # Proxies /api to http://localhost:5000
+└── package.json                 # Scripts: npm run dev:all (server + client)

@@ -1,0 +1,643 @@
+/* ============================================================
+   FoodDash Design System — index.css
+   Tokens, Reset, Utilities, Animations
+   ============================================================ */
+
+/* --- Design Tokens --- */
+/* --- Design Tokens --- */
+:root {
+  /* Colors */
+  --clr-primary: #ff3366;
+  --clr-primary-light: #ff5c8a;
+  --clr-primary-dark: #e61c53;
+  --clr-accent: #ffb703;
+  --clr-accent-light: #ffd166;
+
+  --clr-bg: #07090e;
+  --clr-bg-elevated: #0e121a;
+  --clr-surface: #141923;
+  --clr-surface-hover: #1c2331;
+  --clr-border: rgba(255, 255, 255, 0.08);
+
+  --clr-glass: rgba(20, 25, 35, 0.7);
+  --clr-glass-border: rgba(255, 255, 255, 0.1);
+  --clr-glass-strong: rgba(255, 255, 255, 0.14);
+
+  --clr-text: #f8fafc;
+  --clr-text-secondary: #94a3b8;
+  --clr-text-muted: #64748b;
+
+  --clr-success: #00f59b;
+  --clr-success-bg: rgba(0, 245, 155, 0.12);
+  --clr-warning: #ffb703;
+  --clr-star: #ffc107;
+  --clr-veg: #00e676;
+  --clr-nonveg: #ff3366;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, #ff3366 0%, #ff758c 50%, #ffb703 100%);
+  --grad-hero: linear-gradient(180deg, rgba(7,9,14,0) 0%, rgba(7,9,14,0.92) 100%);
+  --grad-card: linear-gradient(180deg, transparent 40%, rgba(7,9,14,0.85) 100%);
+  --grad-shimmer: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  --grad-glow: radial-gradient(circle at 50% 0%, rgba(255, 51, 102, 0.15), transparent 70%);
+
+  /* Typography */
+  --ff-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ff-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --fs-xs: 0.72rem;
+  --fs-sm: 0.82rem;
+  --fs-base: 0.94rem;
+  --fs-md: 1.08rem;
+  --fs-lg: 1.28rem;
+  --fs-xl: 1.65rem;
+  --fs-2xl: 2.1rem;
+  --fs-3xl: 2.9rem;
+  --fs-4xl: 3.6rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* Spacing */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 26px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.3);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.45);
+  --shadow-lg: 0 12px 35px rgba(0,0,0,0.55);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 35px rgba(255, 51, 102, 0.35);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-normal: 250ms;
+  --dur-slow: 400ms;
+
+  /* Layout */
+  --max-w: 1320px;
+  --nav-h: 72px;
+}
+
+/* ============================================================
+   THEME PALETTE OVERRIDES
+   ============================================================ */
+
+/* 1. Cyber Dark / Midnight Neon (Default) */
+[data-theme="cyber-dark"] {
+  --clr-primary: #ff3366;
+  --clr-primary-light: #ff5c8a;
+  --clr-primary-dark: #d91b4f;
+  --clr-accent: #ffb703;
+  --clr-bg: #07090e;
+  --clr-bg-elevated: #0e121a;
+  --clr-surface: #141923;
+  --clr-surface-hover: #1c2331;
+  --clr-border: rgba(255, 255, 255, 0.08);
+  --clr-glass: rgba(20, 25, 35, 0.7);
+  --clr-glass-border: rgba(255, 255, 255, 0.1);
+  --clr-text: #f8fafc;
+  --clr-text-secondary: #94a3b8;
+  --clr-text-muted: #64748b;
+  --shadow-glow: 0 0 35px rgba(255, 51, 102, 0.35);
+}
+
+/* 2. Hyper Neon / Cyberpunk Cyan & Pink */
+[data-theme="hyper-neon"] {
+  --clr-primary: #00f0ff;
+  --clr-primary-light: #70f7ff;
+  --clr-primary-dark: #00b8c4;
+  --clr-accent: #ff007f;
+  --clr-bg: #090814;
+  --clr-bg-elevated: #110f24;
+  --clr-surface: #1a1736;
+  --clr-surface-hover: #26224e;
+  --clr-border: rgba(0, 240, 255, 0.18);
+  --clr-glass: rgba(26, 23, 54, 0.7);
+  --clr-glass-border: rgba(0, 240, 255, 0.22);
+  --clr-text: #ffffff;
+  --clr-text-secondary: #a5b4fc;
+  --clr-text-muted: #6366f1;
+  --shadow-glow: 0 0 35px rgba(0, 240, 255, 0.4);
+}
+
+/* 3. Royal Dubai Gold & Obsidian */
+[data-theme="royal-gold"] {
+  --clr-primary: #f59e0b;
+  --clr-primary-light: #fbbf24;
+  --clr-primary-dark: #d97706;
+  --clr-accent: #e11d48;
+  --clr-bg: #0a0907;
+  --clr-bg-elevated: #15120d;
+  --clr-surface: #201b13;
+  --clr-surface-hover: #2d261b;
+  --clr-border: rgba(245, 158, 11, 0.18);
+  --clr-glass: rgba(32, 27, 19, 0.7);
+  --clr-glass-border: rgba(245, 158, 11, 0.22);
+  --clr-text: #fef3c7;
+  --clr-text-secondary: #d97706;
+  --clr-text-muted: #92400e;
+  --shadow-glow: 0 0 35px rgba(245, 158, 11, 0.35);
+}
+
+/* 4. Sunset Ember */
+[data-theme="sunset-ember"] {
+  --clr-primary: #ff6b35;
+  --clr-primary-light: #ff8c5a;
+  --clr-primary-dark: #e04e17;
+  --clr-accent: #f7b801;
+  --clr-bg: #110b08;
+  --clr-bg-elevated: #1b120c;
+  --clr-surface: #261a12;
+  --clr-surface-hover: #34241a;
+  --clr-border: rgba(255, 107, 53, 0.18);
+  --clr-glass: rgba(38, 26, 18, 0.7);
+  --clr-glass-border: rgba(255, 107, 53, 0.2);
+  --shadow-glow: 0 0 35px rgba(255, 107, 53, 0.35);
+}
+
+/* 5. Emerald Gourmet */
+[data-theme="emerald-mint"] {
+  --clr-primary: #00e676;
+  --clr-primary-light: #66ffa6;
+  --clr-primary-dark: #00b248;
+  --clr-accent: #ffd166;
+  --clr-bg: #05130d;
+  --clr-bg-elevated: #0a1f16;
+  --clr-surface: #112c20;
+  --clr-surface-hover: #183d2c;
+  --clr-border: rgba(0, 230, 118, 0.18);
+  --clr-glass: rgba(17, 44, 32, 0.7);
+  --clr-glass-border: rgba(0, 230, 118, 0.22);
+  --shadow-glow: 0 0 35px rgba(0, 230, 118, 0.35);
+}
+
+/* 6. Neon Amethyst */
+[data-theme="neon-violet"] {
+  --clr-primary: #a855f7;
+  --clr-primary-light: #c084fc;
+  --clr-primary-dark: #7e22ce;
+  --clr-accent: #ec4899;
+  --clr-bg: #0c0817;
+  --clr-bg-elevated: #150f26;
+  --clr-surface: #1f1638;
+  --clr-surface-hover: #2b1f4d;
+  --clr-border: rgba(168, 85, 247, 0.18);
+  --clr-glass: rgba(31, 22, 56, 0.7);
+  --clr-glass-border: rgba(168, 85, 247, 0.22);
+  --shadow-glow: 0 0 35px rgba(168, 85, 247, 0.35);
+}
+
+/* 7. Ocean Azure */
+[data-theme="ocean-azure"] {
+  --clr-primary: #00b4d8;
+  --clr-primary-light: #48cae4;
+  --clr-primary-dark: #0077b6;
+  --clr-accent: #90e0ef;
+  --clr-bg: #040f1a;
+  --clr-bg-elevated: #081a2c;
+  --clr-surface: #0e2740;
+  --clr-surface-hover: #153759;
+  --clr-border: rgba(0, 180, 216, 0.18);
+  --clr-glass: rgba(14, 39, 64, 0.7);
+  --clr-glass-border: rgba(0, 180, 216, 0.22);
+  --shadow-glow: 0 0 35px rgba(0, 180, 216, 0.35);
+}
+
+/* 8. Luxe Daytime (Light Mode) */
+[data-theme="luxe-light"] {
+  --clr-primary: #e11d48;
+  --clr-primary-light: #f43f5e;
+  --clr-primary-dark: #be123c;
+  --clr-accent: #f59e0b;
+  --clr-bg: #f8fafc;
+  --clr-bg-elevated: #ffffff;
+  --clr-surface: #ffffff;
+  --clr-surface-hover: #f1f5f9;
+  --clr-border: #e2e8f0;
+  --clr-text: #0f172a;
+  --clr-text-secondary: #475569;
+  --clr-text-muted: #94a3b8;
+  --clr-glass: rgba(255, 255, 255, 0.85);
+  --clr-glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 45px rgba(0,0,0,0.12);
+  --shadow-glow: 0 0 25px rgba(225, 29, 72, 0.2);
+}
+
+/* ============================================================
+   TEMPLATE STYLE OVERRIDES
+   ============================================================ */
+
+/* Clean Minimal Template */
+[data-template="clean-minimal"] {
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+}
+
+[data-template="clean-minimal"] .restaurant-card,
+[data-template="clean-minimal"] .collection-card,
+[data-template="clean-minimal"] .offer-card,
+[data-template="clean-minimal"] .advance-feature-banner {
+  box-shadow: none !important;
+  border-width: 1px !important;
+}
+
+/* Vibrant Punchy Template */
+[data-template="vibrant-punchy"] {
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+[data-template="vibrant-punchy"] .restaurant-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading);
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* --- Utility Classes --- */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: var(--sp-1); }
+.gap-2 { gap: var(--sp-2); }
+.gap-3 { gap: var(--sp-3); }
+.gap-4 { gap: var(--sp-4); }
+.gap-6 { gap: var(--sp-6); }
+.gap-8 { gap: var(--sp-8); }
+.text-center { text-align: center; }
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-border);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-text-muted);
+}
+
+/* --- Animations Keyframes --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes toastIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Scroll-Driven Animations (Progressive Enhancement) --- */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    animation: fadeInUp 0.6s var(--ease-out) both;
+  }
+
+  .animate-on-scroll.delay-1 { animation-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { animation-delay: 0.2s; }
+  .animate-on-scroll.delay-3 { animation-delay: 0.3s; }
+  .animate-on-scroll.delay-4 { animation-delay: 0.4s; }
+}
+
+/* --- Button Base Styles --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-6);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--dur-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: none;
+}
+
+.btn:active::after {
+  animation: ripple 0.5s ease-out;
+}
+
+.btn-primary {
+  background: var(--grad-primary);
+  color: white;
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 40px rgba(229, 57, 53, 0.35);
+}
+
+.btn-ghost {
+  background: var(--clr-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--clr-glass-border);
+  color: var(--clr-text);
+}
+
+.btn-ghost:hover {
+  background: var(--clr-glass-strong);
+  border-color: var(--clr-text-muted);
+}
+
+.btn-sm {
+  padding: var(--sp-1) var(--sp-3);
+  font-size: var(--fs-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: var(--sp-4) var(--sp-8);
+  font-size: var(--fs-md);
+  border-radius: var(--radius-lg);
+}
+
+/* --- Badge --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: 2px 8px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: var(--clr-success);
+  color: white;
+}
+
+.badge-accent {
+  background: var(--clr-accent);
+  color: white;
+}
+
+.badge-offer {
+  background: hsl(240, 60%, 55%);
+  color: white;
+}
+
+/* --- Veg/NonVeg Indicator --- */
+.veg-indicator {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--clr-veg);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.veg-indicator::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--clr-veg);
+}
+
+.veg-indicator.nonveg {
+  border-color: var(--clr-nonveg);
+}
+
+.veg-indicator.nonveg::after {
+  background: var(--clr-nonveg);
+}
+
+/* --- Skeleton Loading --- */
+.skeleton {
+  background: var(--clr-surface);
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-surface) 0%,
+    var(--clr-surface-hover) 40%,
+    var(--clr-surface) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* --- Overlay --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-normal) var(--ease-out);
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}

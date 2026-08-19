@@ -1,0 +1,26 @@
+{
+  "name": "fooddash",
+  "version": "1.0.0",
+  "description": "FoodDash - Fullstack Food Delivery Platform with Express Backend",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"node server/index.js\" \"vite\"",
+    "dev:server": "node server/index.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^2.1.1",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "vite": "^6.4.3"
+  }
+}
