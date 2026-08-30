@@ -1,55 +1,75 @@
 <div align="center">
+  <img src="public/logo.jpg" alt="FoodDash Logo" width="180" height="180" style="border-radius: 20%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
   
-  # 🚀 FoodDash 
+  <h1 style="margin: 0;">🚀 FoodDash</h1>
   
-  **Next-Gen Full-Stack Food Delivery & Social Dining Ecosystem**
+  <p><strong>The Next-Generation Full-Stack Food Delivery & Social Dining Ecosystem</strong></p>
+
+  <p>
+    <a href="https://github.com/zeeshansaeed6/FoodDash"><img src="https://img.shields.io/badge/version-1.0.0--beta-blue.svg?style=for-the-badge" alt="Version"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License"></a>
+    <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-Express-339933.svg?style=for-the-badge&logo=nodedotjs" alt="Node.js"></a>
+    <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-Build%20Tool-646CFF.svg?style=for-the-badge&logo=vite" alt="Vite"></a>
+    <a href="https://threejs.org/"><img src="https://img.shields.io/badge/Three.js-3D-black.svg?style=for-the-badge&logo=three.js" alt="Three.js"></a>
+  </p>
   
-  [![Version](https://img.shields.io/badge/version-1.0.0--beta-blue.svg)](https://github.com/zeeshansaeed6/FoodDash)
-  [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-  [![Node.js](https://img.shields.io/badge/Node.js-Express-green.svg)](https://nodejs.org/)
-  [![Vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF.svg)](https://vitejs.dev/)
-  [![Three.js](https://img.shields.io/badge/Three.js-3D-black.svg)](https://threejs.org/)
+  <p><i>A high-performance web platform engineered to modernize digital food delivery, incorporating 3D rendering, AI dining intelligence, and real-time social experiences.</i></p>
 </div>
+
+<br />
 
 ---
 
-## 📌 Executive Summary
-
-**FoodDash** is an end-to-end, high-performance web platform engineered to modernize digital food delivery, social dining experiences, and restaurant discovery. Combining a lightweight, responsive client-side architecture with a modular Node.js/Express REST backend, FoodDash incorporates next-generation web capabilities including **3D Three.js interactive food models**, **AI-assisted meal planning**, **real-time order tracking**, **table reservations**, and **group checkout**.
+## 📖 Table of Contents
+- [✨ Key Features](#-key-features)
+- [🏛️ System Architecture](#️-system-architecture)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [📂 Project Structure](#-project-structure)
+- [🚀 Quick Start Guide](#-quick-start-guide)
+- [📈 Roadmap](#-roadmap)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
 ## ✨ Key Features
 
 ### 🎨 Modern UI & Glassmorphism Aesthetics
-- **Curated Dark-Themed UI:** Custom CSS design system with smooth micro-animations.
-- **Dynamic Cart Drawer:** Live subtotal, tax calculation, and persistent cart state.
-- **Food Stories & Reels:** Social-style interactive media bar.
+> **Experience a sleek, responsive, and visually stunning interface.**
+- **Curated Dark-Themed UI:** Custom CSS design system with HSL-tailored accents, smooth micro-animations, and viewport responsiveness.
+- **Dynamic Cart Drawer:** Live subtotal, tax calculation, delivery fee rules, and persistent cart state.
+- **Food Stories & Reels:** Social-style interactive media bar (`FoodStoriesBar`, `FoodReelsModal`), bringing Instagram-style engagement to food ordering.
 
 ### 🧠 AI-Powered Dining Intelligence
-- **FitMeal Planner:** Macro-based meal recommendation algorithm for fitness targets.
-- **AI Craving & Taste Match:** Smart flavor profiling matching user mood to dishes.
-- **Voice Assistant Integration:** Speech recognition voice-ordering interface.
+> **Smart algorithms that understand your cravings.**
+- **FitMeal Planner:** Macro-based meal recommendation algorithm for specific fitness targets.
+- **AI Craving & Taste Match:** Smart flavor profiling matching user mood to specific dishes.
+- **Voice Assistant Integration:** Speech recognition voice-ordering interface for hands-free navigation.
 
 ### 🎮 WebGL 3D Physics & Micro-Interactions
-- **Three.js 3D Food Inspector:** Interactive 3D rendering canvas with lighting and controls.
-- **Particle Physics Engine:** Floating 3D ambient particle system.
-- **Gamification Utilities:** Interactive Spin Wheel and Mystery Box unlock system.
+> **Pushing the boundaries of web interactions with WebGL.**
+- **Three.js 3D Food Inspector:** Interactive 3D rendering canvas with dynamic lighting, rotation controls, and realistic materials.
+- **Particle Physics Engine:** Floating 3D ambient particle system creating a truly immersive atmosphere.
+- **Gamification Utilities:** Interactive Spin Wheel discount modal and Mystery Box unlock system to boost engagement.
 
-### 🌐 Full-Stack REST Backend & Auth
-- **Express.js API Layer:** Structured routing with a file-backed JSON data store.
-- **Security & Session Management:** JWT authentication and bcrypt password hashing.
+### 🌐 Full-Stack REST Backend & Security
+> **Robust, scalable, and secure API infrastructure.**
+- **Express.js API Layer:** Structured routing with dynamic restaurant search, filtering, and multi-city geocoding.
+- **Security & Session Management:** JWT token verification middleware, bcrypt password hashing, and phone-based OTP simulation.
 - **Location Engine:** Multi-city geocoding using Google Maps APIs.
 
-### 🍽️ Multi-Sided Marketplace
-- **Table Reservation Engine:** Multi-step party size and time slot picker.
+### 🍽️ Multi-Sided Marketplace & Merchant Tools
+> **Connecting diners, restaurants, and riders seamlessly.**
+- **Table Reservation Engine:** Multi-step party size, time slot, and table seating picker.
 - **Group Ordering System:** Shared cart room generation for split-bill group orders.
-- **Merchant Management Console:** Live menu availability management.
+- **Merchant Management Console:** In-flight order dispatching and live menu availability management.
 - **Delivery Rider Dashboard:** Courier route view, status toggling, and earnings tracking.
 
 ---
 
 ## 🏛️ System Architecture
+
+Our platform leverages a clean separation of concerns, utilizing a lightweight client communicating with a modular RESTful Node.js backend.
 
 ```mermaid
 graph TD
@@ -76,13 +96,37 @@ graph TD
 
 | Domain | Technology / Tool | Implementation Purpose |
 | :--- | :--- | :--- |
-| **Frontend Core** | `JavaScript (ES6+)`, `Vite` | Fast HMR, tree-shaking, and clean vanilla web performance |
-| **Styling & Motion** | `Vanilla CSS3`, `Keyframes` | Glassmorphic cards, responsive layouts, micro-animations |
-| **3D Graphics** | `Three.js (v0.185.1)` | Interactive 3D food canvas, ambient physics |
-| **Backend API** | `Node.js`, `Express.js (v4.21)` | RESTful API routing, controller logic |
-| **Security & Auth** | `JWT`, `bcryptjs`, `CORS` | Bearer token authorization, password cryptography |
+| **Frontend Core** | <img src="https://img.shields.io/badge/JavaScript-(ES6+)-F7DF1E?style=flat&logo=javascript" alt="JS"> `Vite` | Fast HMR, tree-shaking, and clean vanilla web performance |
+| **Styling & Motion** | <img src="https://img.shields.io/badge/Vanilla_CSS3-1572B6?style=flat&logo=css3" alt="CSS"> `Keyframes` | Glassmorphic cards, responsive flex/grid layouts, micro-animations |
+| **3D Graphics** | <img src="https://img.shields.io/badge/Three.js-black?style=flat&logo=three.js" alt="Three"> | Interactive 3D food canvas, ambient physics, mesh materials |
+| **Backend API** | <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js" alt="Node"> `Express.js` | RESTful API routing, controller logic, and server middleware |
+| **Security & Auth** | `JWT`, `bcryptjs`, `CORS` | Bearer token authorization, password cryptography, CORS filtering |
 | **Geolocation** | `@googlemaps/js-api-loader` | Interactive maps, location discovery, geocoding |
-| **DevOps** | `Concurrently`, `Vite` | Simultaneous full-stack client/server execution |
+| **DevOps & Tooling**| `Concurrently`, `Git`, `npm` | Simultaneous full-stack client/server execution |
+
+---
+
+## 📂 Project Structure
+
+```text
+FOOD_DELIVERY/
+├── public/                 # Static assets (images, icons, manifest.json)
+├── server/                 # Express backend source code
+│   ├── routes/             # API Endpoint definitions (auth, orders, etc.)
+│   ├── db_data.json        # File-backed database simulator
+│   └── index.js            # Node.js server entry point
+├── src/                    # Frontend source code
+│   ├── api/                # Client-side API request wrappers
+│   ├── components/         # Reusable UI components (Modals, Navbars, Cards)
+│   ├── pages/              # Main view containers (DriverPage, etc.)
+│   ├── styles/             # Modular CSS stylesheets
+│   ├── utils/              # Utilities (Three.js logic, Google Maps, animations)
+│   └── main.js             # Vite application entry point
+├── test/                   # Unit and integration test suites
+├── index.html              # Main HTML document template
+├── package.json            # Node.js dependencies and scripts
+└── vite.config.js          # Vite bundler configuration
+```
 
 ---
 
@@ -91,9 +135,9 @@ graph TD
 ### Prerequisites
 - Node.js (v18 or higher)
 - npm or yarn
-- Google Maps API Key (for location features)
+- Google Maps API Key (for location tracking features)
 
-### Installation
+### Installation Steps
 
 1. **Clone the repository:**
    ```bash
@@ -106,32 +150,61 @@ graph TD
    npm install
    ```
 
-3. **Set up Environment Variables:**
-   Create a `.env` file in the root directory:
+3. **Configure Environment Variables:**
+   Create a `.env` file in the project root directory and add the following keys:
    ```env
    PORT=5000
-   JWT_SECRET=your_jwt_secret_here
+   JWT_SECRET=your_secure_jwt_secret_key_here
    VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
    ```
 
-4. **Run the Application:**
-   Starts both the frontend Vite server and the Node.js Express backend simultaneously.
+4. **Launch the Platform:**
+   Start both the frontend Vite development server and the Node.js backend simultaneously:
    ```bash
    npm run dev
    ```
 
-5. **Open in Browser:**
-   Navigate to `http://localhost:5173`
+5. **Access the App:**
+   Open your browser and navigate to [http://localhost:5173](http://localhost:5173). The API server will run concurrently on port 5000.
 
 ---
 
-## 📈 Quality Assurance
-- **Performance:** Optimized bundle size with zero bulky front-end framework overhead.
-- **Accessibility (a11y):** High contrast color ratios, ARIA attributes, and semantic HTML5.
-- **Cross-Browser Compatibility:** Tested across modern Chromium, Safari, and Firefox engines.
+## 📈 Roadmap
+
+We are constantly pushing the boundaries of what a web application can do. Here is what is coming next:
+
+- [x] Phase 1: Core UI & Component Architecture
+- [x] Phase 2: Full-Stack REST Backend & Authentication
+- [x] Phase 3: Interactive Dining & 3D WebGL Physics
+- [x] Phase 4: AI & Smart Assistant Layer
+- [x] Phase 5: Multi-Sided Marketplace & Table Reservations
+- [ ] **Phase 6:** Complete Payment Gateway & Security Hardening (Stripe / PayPal)
+- [ ] **Phase 7:** Microservices & Live WebSocket Tracking Refinements
+- [ ] **Phase 8:** Database Migration to MongoDB / PostgreSQL via Prisma
+
+*(Check the `PROJECT_ROADMAP.md` file for an exhaustive breakdown.)*
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
 <div align="center">
-  <i>Developed with ❤️ for the next generation of food delivery.</i>
+  <b>Developed with ❤️ for the next generation of food delivery.</b><br>
+  <i>For collaboration, contributions, or technical queries, please reach out via GitHub issues or connect with the author.</i>
 </div>
