@@ -1,12 +1,12 @@
 <div align="center">
   <img src="public/logo.jpg" alt="FoodDash Logo" width="200" height="200" style="border-radius: 50%; border: 4px solid #1572B6; box-shadow: 0 8px 16px rgba(0,0,0,0.4); margin-bottom: 20px;">
   
-  <h1 style="font-size: 3em; font-weight: bold; margin: 0; color: #ff4b2b;">🚀 FoodDash</h1>
+  <h1 style="font-size: 3.5em; font-weight: 800; margin: 0; color: #ff4b2b;">🚀 FoodDash</h1>
   
   <p style="font-size: 1.2em; color: #555;"><strong>The Next-Generation Full-Stack Food Delivery & Social Dining Ecosystem</strong></p>
 
   <p>
-    <a href="https://github.com/zeeshansaeed6/FoodDash"><img src="https://img.shields.io/badge/version-1.0.0--beta-blue.svg?style=for-the-badge&logo=appveyor" alt="Version"></a>
+    <a href="https://github.com/zeeshansaeed6/FoodDash"><img src="https://img.shields.io/badge/version-1.0.0--stable-blue.svg?style=for-the-badge&logo=appveyor" alt="Version"></a>
     <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=for-the-badge" alt="License"></a>
     <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-Express-339933.svg?style=for-the-badge&logo=nodedotjs" alt="Node.js"></a>
     <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-Build%20Tool-646CFF.svg?style=for-the-badge&logo=vite" alt="Vite"></a>
@@ -19,7 +19,7 @@
 <br />
 
 <div align="center">
-  <img src="fooddash_linkedin_showcase.png" alt="FoodDash Preview" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); width: 100%; max-width: 800px;">
+  <img src="fooddash_linkedin_showcase.png" alt="FoodDash Preview" style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); width: 100%; max-width: 850px; border: 1px solid #333;">
 </div>
 
 <br />
@@ -31,11 +31,12 @@
 - [✨ Core Features](#-core-features)
 - [🏛️ System Architecture](#️-system-architecture)
 - [🛠️ Tech Stack & Tools](#️-tech-stack--tools)
+- [🎨 Design System](#-design-system)
+- [🔌 API Reference](#-api-reference)
 - [📂 Codebase Structure](#-codebase-structure)
 - [🚀 Getting Started](#-getting-started)
-- [📈 Roadmap & Vision](#-roadmap--vision)
+- [🏆 Project Completion](#-project-completion--milestones)
 - [🤝 Contribute to FoodDash](#-contribute-to-fooddash)
-- [📄 License](#-license)
 
 ---
 
@@ -130,19 +131,47 @@ graph TD
 
 ### Frontend
 - **Framework:** `Vite` with Vanilla `ES6+ JavaScript`
-- **Styling:** Custom `Vanilla CSS3` (Glassmorphism & Keyframes)
+- **Styling:** Custom `Vanilla CSS3` (Glassmorphism, CSS Grid, Flexbox)
 - **3D Engine:** `Three.js (v0.185.1)`
 - **Maps:** `@googlemaps/js-api-loader`
+- **Real-Time:** `socket.io-client`
 
 ### Backend
 - **Runtime:** `Node.js`
 - **Framework:** `Express.js (v4.21)`
 - **Security:** `jsonwebtoken`, `bcryptjs`, `cors`
-- **Database:** JSON File-Backed Store (Ready for MongoDB/Prisma Migration)
+- **Database:** JSON File-Backed Store (Designed for seamless MongoDB/Prisma Migration)
+- **Real-Time:** `socket.io`
 
-### DevOps
+### DevOps & Testing
 - **Local Dev:** `concurrently` (runs Vite & Express simultaneously)
 - **Testing:** `vitest`, `supertest`, `jsdom`
+
+---
+
+## 🎨 Design System
+
+FoodDash uses a bespoke, ultra-modern Glassmorphism design language tailored for dark mode displays. 
+
+- **Primary Accent:** `<span style="color:#ff4b2b;">#FF4B2B (Spicy Orange)</span>`
+- **Secondary Accent:** `<span style="color:#ff416c;">#FF416C (Neon Pink)</span>`
+- **Background Layering:** Multiple gradients utilizing `#121212` and `#1a1a2e`.
+- **Glass Effects:** Backdrop-filter blurring with `rgba(255, 255, 255, 0.05)` borders for premium depth.
+- **Typography:** Sleek system-native san-serif fonts optimized for high-DPI screens.
+
+---
+
+## 🔌 API Reference
+
+The backend Express server offers clean, RESTful endpoints. *(Requires valid JWT token for protected routes)*
+
+| Endpoint | Method | Description |
+|---|---|---|
+| `/api/auth/login` | `POST` | Authenticates user and returns JWT token |
+| `/api/auth/register` | `POST` | Registers a new user with bcrypt hashed password |
+| `/api/restaurants` | `GET` | Fetches a list of available restaurants based on location |
+| `/api/orders` | `POST` | Submits a new order and triggers state machine |
+| `/api/orders/:id` | `GET` | Retrieves real-time status of an order |
 
 ---
 
@@ -173,7 +202,7 @@ FOOD_DELIVERY/
 ### 1️⃣ Prerequisites
 - **Node.js** (v18 or higher)
 - **npm** or **yarn**
-- **Google Maps API Key** (Required for location features)
+- **Google Maps API Key** (Required for location tracking features)
 
 ### 2️⃣ Installation & Setup
 
@@ -243,4 +272,6 @@ Distributed under the **MIT License**. See `LICENSE` for more information.
 <div align="center">
   <b>Developed with ❤️ to push the limits of modern web development.</b><br>
   <i>For collaboration, contributions, or technical queries, please reach out via GitHub issues.</i>
+  <br><br>
+  <a href="#-fooddash">⬆️ Back to Top</a>
 </div>
