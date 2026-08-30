@@ -12,7 +12,7 @@ export function renderFooter() {
       <div class="footer__grid">
         <div class="footer__brand">
           <div class="footer__logo">
-            <span>🍔</span>
+            <img src="/logo.jpg" alt="FoodDash Logo" style="height: 32px; width: auto; border-radius: 4px; margin-right: 8px;">
             <span class="footer__logo-text">FoodDash</span>
           </div>
           <p class="footer__desc">
@@ -37,8 +37,6 @@ export function renderFooter() {
 
         <div>
           <h4 class="footer__col-title">For You</h4>
-          <a href="#" class="footer__link">Partner with Us</a>
-          <a href="#" class="footer__link">Ride with Us</a>
           <a href="#" class="footer__link">FoodDash Pro</a>
           <a href="#" class="footer__link">Gift Cards</a>
         </div>

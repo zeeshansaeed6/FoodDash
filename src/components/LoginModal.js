@@ -1,31 +1,119 @@
 // ============================================================
-// Login Modal Component (Real Google & Email & Phone Auth)
+// Login Modal Component (Real Google & Email & Phone Auth + UX Features)
 // ============================================================
 import { showToast } from './Toast.js';
-import { sendOtp, verifyOtp, loginWithGoogle, loginWithEmail, setAuthState } from '../api/client.js';
+import { sendOtp, verifyOtp, loginWithGoogle, loginWithEmail, setAuthState, registerDeliveryRider, registerRestaurant } from '../api/client.js';
 
 let isOpen = false;
 let currentPhone = '';
 
 export function createLoginModal() {
+  const hash = window.location.hash.slice(1).toLowerCase();
+  
+  let role = 'customer';
+  let title = 'Sign in to FoodDash';
+  let subtitle = 'Login with your real Google account, Email or Phone OTP';
+  let logo = '🍔';
+  let themeColor = 'var(--clr-primary)';
+  let extraTabHtml = '';
+  let extraFormHtml = '';
+
+  if (hash === 'partner' || hash === 'merchant') {
+    role = 'partner';
+    title = 'Partner Hub Portal';
+    subtitle = 'Manage your restaurant, menus, and track business analytics';
+    logo = '🧑‍🍳';
+    themeColor = '#ff6b00'; // Orange for partner
+    extraTabHtml = `<button class="login-modal__tab" data-tab="register-partner">Register Restaurant</button>`;
+    extraFormHtml = `
+      <form class="login-modal__form" id="register-partner-form" style="display: none;">
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">Restaurant Name</label>
+          <input type="text" class="login-modal__input" placeholder="e.g. Spice Route" id="reg-rest-name" required />
+        </div>
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">City</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" class="login-modal__input" placeholder="e.g. Bangalore" id="reg-rest-city" required style="flex: 1;" />
+            <button type="button" id="detect-city-btn" class="btn btn-secondary btn-sm" style="border-radius: var(--radius-md); padding: 0 12px; font-size: 16px;" title="Detect My City">📍</button>
+          </div>
+        </div>
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">Cuisines (comma separated)</label>
+          <input type="text" class="login-modal__input" placeholder="e.g. Indian, Chinese" id="reg-rest-cuisines" required />
+        </div>
+        <button type="submit" class="login-modal__submit" id="reg-rest-btn" style="background: ${themeColor};">
+          Apply as Partner →
+        </button>
+      </form>
+    `;
+  } else if (hash === 'rider' || hash === 'driver') {
+    role = 'rider';
+    title = 'Rider Fleet Portal';
+    subtitle = 'Sign in to start accepting deliveries and earn on your schedule';
+    logo = '🛵';
+    themeColor = '#00e676'; // Green for rider
+    extraTabHtml = `<button class="login-modal__tab" data-tab="register-rider">Join Fleet</button>`;
+    extraFormHtml = `
+      <form class="login-modal__form" id="register-rider-form" style="display: none;">
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">Full Name</label>
+          <input type="text" class="login-modal__input" placeholder="e.g. Ramesh Kumar" id="reg-rider-name" required />
+        </div>
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">Phone Number</label>
+          <input type="tel" class="login-modal__input" placeholder="10-digit number" maxlength="10" id="reg-rider-phone" required />
+        </div>
+        <div class="login-modal__input-group">
+          <label class="login-modal__label">Vehicle & Avatar</label>
+          <div style="display: flex; gap: 8px;" id="rider-avatar-selector">
+            <button type="button" class="avatar-btn active" data-vehicle="Electric Scooter" data-avatar="🛵" style="flex: 1; padding: 10px; border: 2px solid ${themeColor}; border-radius: 8px; background: rgba(0, 230, 118, 0.1); cursor: pointer; font-size: 24px;">🛵</button>
+            <button type="button" class="avatar-btn" data-vehicle="Bike" data-avatar="🏍️" style="flex: 1; padding: 10px; border: 2px solid transparent; border-radius: 8px; background: rgba(255,255,255,0.05); cursor: pointer; font-size: 24px;">🏍️</button>
+            <button type="button" class="avatar-btn" data-vehicle="Bicycle" data-avatar="🚲" style="flex: 1; padding: 10px; border: 2px solid transparent; border-radius: 8px; background: rgba(255,255,255,0.05); cursor: pointer; font-size: 24px;">🚲</button>
+            <button type="button" class="avatar-btn" data-vehicle="Car" data-avatar="🚗" style="flex: 1; padding: 10px; border: 2px solid transparent; border-radius: 8px; background: rgba(255,255,255,0.05); cursor: pointer; font-size: 24px;">🚗</button>
+          </div>
+          <input type="hidden" id="reg-rider-vehicle" value="Electric Scooter" />
+          <input type="hidden" id="reg-rider-avatar" value="🛵" />
+        </div>
+        <button type="submit" class="login-modal__submit" id="reg-rider-btn" style="background: ${themeColor}; color: #000;">
+          Register as Rider →
+        </button>
+      </form>
+    `;
+  }
+
   const overlay = document.createElement('div');
   overlay.className = 'login-overlay';
   overlay.id = 'login-overlay';
 
   overlay.innerHTML = `
-    <div class="login-modal" id="login-modal">
+    <style>
+      @keyframes shake-animation {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+        20%, 40%, 60%, 80% { transform: translateX(6px); }
+      }
+      .form-shake {
+        animation: shake-animation 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+      }
+      .form-shake input {
+        border-color: #ef4444 !important;
+      }
+    </style>
+    <div class="login-modal" id="login-modal" style="border-top: 4px solid ${themeColor};">
       <button class="login-modal__close" id="login-close-btn" aria-label="Close login">✕</button>
       
       <div class="login-modal__header">
-        <div class="login-modal__logo">🍔</div>
-        <h2 class="login-modal__title" id="auth-title">Sign in to FoodDash</h2>
-        <p class="login-modal__subtitle" id="auth-subtitle">Login with your real Google account, Email or Phone OTP</p>
+        <div class="login-modal__logo" style="background: ${themeColor}22; color: ${themeColor}; padding: 12px; border-radius: 50%; display: inline-block; font-size: 2rem;">${logo}</div>
+        <h2 class="login-modal__title" id="auth-title">${title}</h2>
+        <p class="login-modal__subtitle" id="auth-subtitle">${subtitle}</p>
       </div>
 
       <div class="login-modal__tabs" id="auth-tabs">
         <button class="login-modal__tab active" data-tab="google">Google Account</button>
         <button class="login-modal__tab" data-tab="email">Email / Password</button>
         <button class="login-modal__tab" data-tab="phone">Phone OTP</button>
+        ${extraTabHtml}
       </div>
 
       <!-- Tab 1: Real Google Sign-In Form -->
@@ -62,9 +150,10 @@ export function createLoginModal() {
           <label class="login-modal__label">Email Address</label>
           <input type="email" class="login-modal__input" placeholder="yourname@domain.com" id="login-email" required />
         </div>
-        <div class="login-modal__input-group">
+        <div class="login-modal__input-group" style="position: relative;">
           <label class="login-modal__label">Password</label>
-          <input type="password" class="login-modal__input" placeholder="Enter password (min 6 characters)" id="login-password" required />
+          <input type="password" class="login-modal__input" placeholder="Enter password (min 6 chars)" id="login-password" required style="padding-right: 40px;" />
+          <button type="button" id="toggle-password-btn" style="position: absolute; right: 12px; top: 32px; background: none; border: none; font-size: 16px; cursor: pointer; color: var(--clr-text-muted);">👁️</button>
         </div>
 
         <button type="submit" class="login-modal__submit" id="email-login-btn">
@@ -108,6 +197,9 @@ export function createLoginModal() {
         </form>
       </div>
 
+      <!-- Extra Registration Forms -->
+      ${extraFormHtml}
+
       <p class="login-modal__terms" style="margin-top: 16px;">
         By continuing, you agree to FoodDash <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
       </p>
@@ -116,27 +208,88 @@ export function createLoginModal() {
 
   document.body.appendChild(overlay);
 
+  // Helper function for form shake animation
+  const triggerShake = (form) => {
+    form.classList.remove('form-shake');
+    void form.offsetWidth; // trigger reflow
+    form.classList.add('form-shake');
+  };
+
+  // 1. Password Visibility Toggle
+  const togglePwdBtn = overlay.querySelector('#toggle-password-btn');
+  if (togglePwdBtn) {
+    togglePwdBtn.addEventListener('click', () => {
+      const pwdInput = overlay.querySelector('#login-password');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        togglePwdBtn.textContent = '🙈';
+      } else {
+        pwdInput.type = 'password';
+        togglePwdBtn.textContent = '👁️';
+      }
+    });
+  }
+
+  // 2. Detect City Logic
+  const detectCityBtn = overlay.querySelector('#detect-city-btn');
+  if (detectCityBtn) {
+    detectCityBtn.addEventListener('click', async () => {
+      detectCityBtn.textContent = '⌛';
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        if (data.city) {
+          overlay.querySelector('#reg-rest-city').value = data.city;
+          showToast(`Detected city: ${data.city}`, '📍');
+        } else {
+          throw new Error('City not found');
+        }
+      } catch (e) {
+        showToast('Could not automatically detect city', '⚠️');
+      }
+      detectCityBtn.textContent = '📍';
+    });
+  }
+
+  // 3. Custom Rider Avatar Selector
+  const avatarBtns = overlay.querySelectorAll('.avatar-btn');
+  avatarBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      avatarBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.border = '2px solid transparent';
+        b.style.background = 'rgba(255,255,255,0.05)';
+      });
+      btn.classList.add('active');
+      btn.style.border = `2px solid ${themeColor}`;
+      btn.style.background = 'rgba(0, 230, 118, 0.1)';
+      overlay.querySelector('#reg-rider-vehicle').value = btn.dataset.vehicle;
+      overlay.querySelector('#reg-rider-avatar').value = btn.dataset.avatar;
+    });
+  });
+
   // Tab switching
   overlay.querySelectorAll('.login-modal__tab').forEach(tab => {
     tab.addEventListener('click', () => {
       overlay.querySelectorAll('.login-modal__tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      const googleForm = overlay.querySelector('#google-form');
-      const emailForm = overlay.querySelector('#email-form');
-      const phoneContainer = overlay.querySelector('#phone-container');
+      
+      const forms = ['google-form', 'email-form', 'phone-container', 'register-partner-form', 'register-rider-form'];
+      forms.forEach(fId => {
+        const f = overlay.querySelector(`#${fId}`);
+        if (f) f.style.display = 'none';
+      });
 
       if (tab.dataset.tab === 'google') {
-        googleForm.style.display = '';
-        emailForm.style.display = 'none';
-        phoneContainer.style.display = 'none';
+        overlay.querySelector('#google-form').style.display = '';
       } else if (tab.dataset.tab === 'email') {
-        googleForm.style.display = 'none';
-        emailForm.style.display = '';
-        phoneContainer.style.display = 'none';
-      } else {
-        googleForm.style.display = 'none';
-        emailForm.style.display = 'none';
-        phoneContainer.style.display = '';
+        overlay.querySelector('#email-form').style.display = '';
+      } else if (tab.dataset.tab === 'phone') {
+        overlay.querySelector('#phone-container').style.display = '';
+      } else if (tab.dataset.tab === 'register-partner') {
+        overlay.querySelector('#register-partner-form').style.display = '';
+      } else if (tab.dataset.tab === 'register-rider') {
+        overlay.querySelector('#register-rider-form').style.display = '';
       }
     });
   });
@@ -148,6 +301,7 @@ export function createLoginModal() {
     const email = overlay.querySelector('#google-real-email').value.trim();
 
     if (!email || !name) {
+      triggerShake(overlay.querySelector('#google-form'));
       showToast('Please enter your name and email', '⚠️');
       return;
     }
@@ -159,7 +313,7 @@ export function createLoginModal() {
     const res = await loginWithGoogle({
       name,
       email,
-      avatar: '🧑‍💻'
+      avatar: role === 'partner' ? '🧑‍🍳' : (role === 'rider' ? '🛵' : '🧑‍💻')
     });
 
     btn.disabled = false;
@@ -170,6 +324,7 @@ export function createLoginModal() {
       closeLoginModal();
     } else {
       showToast(res.message || 'Google sign-in failed', '❌');
+      triggerShake(overlay.querySelector('#google-form'));
     }
   });
 
@@ -179,6 +334,11 @@ export function createLoginModal() {
     const name = overlay.querySelector('#email-name')?.value.trim();
     const email = overlay.querySelector('#login-email').value.trim();
     const password = overlay.querySelector('#login-password').value;
+
+    if (!email || password.length < 6) {
+      triggerShake(overlay.querySelector('#email-form'));
+      return;
+    }
 
     const btn = overlay.querySelector('#email-login-btn');
     btn.disabled = true;
@@ -207,6 +367,7 @@ export function createLoginModal() {
       closeLoginModal();
     } else {
       showToast(res.message || 'Authentication error', '❌');
+      triggerShake(overlay.querySelector('#email-form'));
     }
   });
 
@@ -216,6 +377,7 @@ export function createLoginModal() {
     const phoneInput = overlay.querySelector('#login-phone');
     const phone = phoneInput.value.trim();
     if (phone.length < 10) {
+      triggerShake(overlay.querySelector('#phone-step-1'));
       showToast('Please enter a valid 10-digit number', '⚠️');
       return;
     }
@@ -239,6 +401,7 @@ export function createLoginModal() {
       overlay.querySelector('#login-otp-val').focus();
     } else {
       showToast(res.message || 'Failed to send OTP', '❌');
+      triggerShake(overlay.querySelector('#phone-step-1'));
     }
   });
 
@@ -247,6 +410,7 @@ export function createLoginModal() {
     e.preventDefault();
     const otp = overlay.querySelector('#login-otp-val').value.trim();
     if (!otp) {
+      triggerShake(overlay.querySelector('#phone-step-2'));
       showToast('Please enter OTP', '⚠️');
       return;
     }
@@ -264,6 +428,7 @@ export function createLoginModal() {
       closeLoginModal();
     } else {
       showToast(res.message || 'Invalid OTP', '❌');
+      triggerShake(overlay.querySelector('#phone-step-2'));
     }
   });
 
@@ -271,6 +436,96 @@ export function createLoginModal() {
     overlay.querySelector('#phone-step-1').style.display = '';
     overlay.querySelector('#phone-step-2').style.display = 'none';
   });
+
+  // 4. Partner Registration Handler (With Auto-Login)
+  const partnerForm = overlay.querySelector('#register-partner-form');
+  if (partnerForm) {
+    partnerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = overlay.querySelector('#reg-rest-name').value.trim();
+      const cityName = overlay.querySelector('#reg-rest-city').value.trim();
+      const cuisinesInput = overlay.querySelector('#reg-rest-cuisines').value.trim();
+      
+      if (!name || !cityName || !cuisinesInput) {
+        triggerShake(partnerForm);
+        return;
+      }
+      const cuisines = cuisinesInput.split(',').map(s => s.trim());
+      
+      const btn = overlay.querySelector('#reg-rest-btn');
+      btn.disabled = true;
+      btn.textContent = 'Applying...';
+
+      const res = await registerRestaurant({ name, cityName, cuisines });
+      
+      if (res.success) {
+        showToast('Restaurant registered successfully! Auto-logging you in...', '✅', 3000);
+        
+        // Auto-Login by creating a partner admin profile seamlessly
+        const regRes = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            name: `${name} Admin`, 
+            email: `admin@${name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}${Math.floor(Math.random()*1000)}.com`, 
+            password: 'password123' 
+          })
+        }).then(r => r.json());
+
+        if (regRes.success && regRes.token) {
+          setAuthState(regRes.user, regRes.token);
+          closeLoginModal();
+          window.location.reload();
+        }
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Apply as Partner →';
+        showToast(res.message || 'Failed to register', '❌');
+        triggerShake(partnerForm);
+      }
+    });
+  }
+
+  // 5. Rider Registration Handler (With Auto-Login)
+  const riderForm = overlay.querySelector('#register-rider-form');
+  if (riderForm) {
+    riderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = overlay.querySelector('#reg-rider-name').value.trim();
+      const phone = overlay.querySelector('#reg-rider-phone').value.trim();
+      const vehicleType = overlay.querySelector('#reg-rider-vehicle').value;
+      const avatar = overlay.querySelector('#reg-rider-avatar').value;
+      
+      if (!name || phone.length < 10) {
+        triggerShake(riderForm);
+        return;
+      }
+
+      const btn = overlay.querySelector('#reg-rider-btn');
+      btn.disabled = true;
+      btn.textContent = 'Registering...';
+
+      const res = await registerDeliveryRider({ name, phone, vehicleType, avatar });
+      
+      if (res.success) {
+        showToast('Registered successfully! Auto-logging you in...', '✅', 3000);
+        
+        // Auto-Login via OTP logic silently
+        await sendOtp(phone);
+        const otpRes = await verifyOtp(phone, '1234', name);
+        
+        if (otpRes.success) {
+          closeLoginModal();
+          window.location.reload();
+        }
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Register as Rider →';
+        showToast(res.message || 'Failed to register', '❌');
+        triggerShake(riderForm);
+      }
+    });
+  }
 
   // Close
   overlay.querySelector('#login-close-btn').addEventListener('click', closeLoginModal);

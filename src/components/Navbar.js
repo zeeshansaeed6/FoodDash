@@ -33,22 +33,11 @@ export function renderNavbar(onCartClick, onNavigate) {
     return `
       <div class="container navbar__inner">
         <a class="navbar__logo" id="nav-logo" href="#" aria-label="FoodDash Home">
-          <span class="navbar__logo-icon">🍔</span>
+          <img src="/logo.jpg" alt="FoodDash Logo" style="height: 32px; width: auto; border-radius: 6px; margin-right: 6px;">
           <span class="navbar__logo-text">FoodDash</span>
         </a>
 
-        <!-- Role Mode Switcher -->
-        <div id="nav-role-switcher" style="display: flex; gap: 4px; background: rgba(255,255,255,0.06); padding: 3px 6px; border-radius: var(--radius-full); border: 1px solid var(--clr-border);">
-          <button class="btn btn-ghost btn-sm role-tab-btn" id="role-customer-btn" style="padding: 4px 10px; font-size: 11px; font-weight: bold; border-radius: var(--radius-full); transition: all 0.2s;">
-            🛍️ Customer
-          </button>
-          <button class="btn btn-ghost btn-sm role-tab-btn" id="nav-partner-btn" style="padding: 4px 10px; font-size: 11px; border-radius: var(--radius-full); transition: all 0.2s;">
-            🧑‍🍳 Partner Hub
-          </button>
-          <button class="btn btn-ghost btn-sm role-tab-btn" id="nav-rider-btn" style="padding: 4px 10px; font-size: 11px; border-radius: var(--radius-full); transition: all 0.2s;">
-            🛵 Rider Fleet
-          </button>
-        </div>
+        <!-- Role Mode Switcher removed for separate dashboard URLs -->
 
         <button class="navbar__location" id="nav-location" aria-label="Change delivery location" title="Click to choose city or address">
           <span class="navbar__location-icon">📍</span>
@@ -138,6 +127,10 @@ export function renderNavbar(onCartClick, onNavigate) {
 
         <div class="navbar__actions">
           <!-- DashCoins Badge -->
+          <button class="btn btn-ghost btn-sm" id="nav-install-app-btn" title="Install App" style="display: none; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-full); font-size: 12px; font-weight: 800; color: #10b981; padding: 5px 12px; align-items: center; gap: 4px;">
+            <span>📱</span> Install App
+          </button>
+
           <button class="btn btn-ghost btn-sm" id="nav-coins-btn" title="DashCoins Loyalty Wallet" style="background: rgba(255, 165, 2, 0.12); border: 1px solid rgba(255, 165, 2, 0.3); border-radius: var(--radius-full); font-size: 12px; font-weight: 800; color: #ffa502; padding: 5px 10px; display: flex; align-items: center; gap: 4px;">
             <span>🪙</span> <span id="nav-coins-val">${coins}</span>
           </button>
@@ -387,6 +380,44 @@ export function renderNavbar(onCartClick, onNavigate) {
     // Update cart badge & role tabs
     updateBadge();
     updateRolePills();
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = nav.querySelector('#nav-install-app-btn');
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      if (installBtn) {
+        installBtn.style.display = 'flex';
+      }
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          // Show the install prompt
+          deferredPrompt.prompt();
+          // Wait for the user to respond to the prompt
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response to the install prompt: ${outcome}`);
+          // We've used the prompt, and can't use it again, throw it away
+          deferredPrompt = null;
+          installBtn.style.display = 'none';
+        }
+      });
+    }
+
+    window.addEventListener('appinstalled', () => {
+      // Hide the app-provided install promotion
+      if (installBtn) {
+        installBtn.style.display = 'none';
+      }
+      showToast('App installed successfully! 🎉', '📱');
+    });
   }
 
   // Role Pill Indicator Sync

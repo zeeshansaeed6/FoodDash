@@ -3,8 +3,10 @@
 // ============================================================
 
 let audioCtx = null;
-let isSoundMuted = localStorage.getItem('fooddash_sound_muted') === 'true';
-
+let isSoundMuted = false;
+try {
+  isSoundMuted = localStorage.getItem('fooddash_sound_muted') === 'true';
+} catch (e) {}
 function getAudioContext() {
   if (!audioCtx) {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;

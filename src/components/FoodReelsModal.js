@@ -305,9 +305,53 @@ function bindReelEvents() {
   });
 
   // Share
-  reelsModalEl.querySelector('#btn-reel-share')?.addEventListener('click', () => {
-    showToast(`Reel link copied to clipboard! 📋`, '✨');
+  reelsModalEl.querySelector('#btn-reel-share')?.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: reel.title,
+          text: reel.caption,
+          url: window.location.href
+        });
+      } catch (err) {
+        console.error('Share failed', err);
+      }
+    } else {
+      showToast(`Reel link copied to clipboard! 📋`, '✨');
+    }
   });
+
+  // Audio Mute Toggle
+  const audioBtn = reelsModalEl.querySelector('#btn-reel-audio');
+  audioBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    window.isReelMuted = !window.isReelMuted;
+    audioBtn.innerHTML = window.isReelMuted ? '🔇' : '🔊';
+    showToast(window.isReelMuted ? 'Audio Muted' : 'Audio Unmuted', '🔈');
+  });
+
+  // Swipe to navigate (Mobile Touch)
+  let startY = 0;
+  reelsModalEl.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  reelsModalEl.addEventListener('touchend', (e) => {
+    const endY = e.changedTouches[0].clientY;
+    const diff = startY - endY;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentReelIndex < foodReels.length - 1) {
+        // Swipe Up -> Next
+        currentReelIndex++;
+        renderCurrentReel();
+      } else if (diff < 0 && currentReelIndex > 0) {
+        // Swipe Down -> Prev
+        currentReelIndex--;
+        renderCurrentReel();
+      }
+    }
+  }, { passive: true });
 }
 
 function triggerHeartBurst(clientX, clientY) {

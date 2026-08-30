@@ -4,7 +4,7 @@
 import { showToast } from './Toast.js';
 import { sounds } from '../utils/audio.js';
 import { mountActiveGoogleMap } from '../utils/googleMaps.js';
-import { trackOrderLive } from '../api/client.js';
+import { trackOrderLive, getSocketConnection } from '../api/client.js';
 
 let trackingModalEl = null;
 let currentOrderId = null;
@@ -160,6 +160,7 @@ async function renderLiveTracking() {
 
   // Mount Real-Time Active Map Radar
   const mapContainer = trackingModalEl.querySelector('#gmaps-live-track-container');
+  let activeMapObj = null;
   if (mapContainer) {
     mountActiveGoogleMap(mapContainer, {
       origin: { lat: restLoc.lat, lng: restLoc.lng, label: data.restaurantName },
@@ -172,14 +173,18 @@ async function renderLiveTracking() {
       status: data.status,
       waypoints: data.waypoints || [],
       height: '260px'
+    }).then(res => {
+      if (res) activeMapObj = res;
     });
   }
 
-  // Active Polling Loop (Every 3 seconds) for live vehicle movement & telemetry
-  if (pollTimer) clearInterval(pollTimer);
-  pollTimer = setInterval(async () => {
-    const updated = await trackOrderLive(currentOrderId);
-    if (updated && updated.success) {
+  // Connect to WebSocket Room for Real-Time telemetry
+  const socket = getSocketConnection();
+  socket.emit('join_order_room', currentOrderId);
+
+  // Listen for Live Vehicle GPS updates from Server
+  socket.on('driver_location_update', (updated) => {
+    if (updated) {
       const etaEl = trackingModalEl.querySelector('#track-eta');
       const distEl = trackingModalEl.querySelector('#track-distance-text');
       const spdEl = trackingModalEl.querySelector('#track-speed-text');
@@ -190,6 +195,20 @@ async function renderLiveTracking() {
       if (spdEl) spdEl.textContent = `${updated.speedKmh} km/h`;
       if (statusEl) statusEl.textContent = (updated.status || '').replace(/_/g, ' ');
 
+      // Update Live Map Marker (Google Maps)
+      if (activeMapObj && activeMapObj.driverMarker && updated.lat && updated.lng) {
+        if (activeMapObj.driverMarker.setPosition && activeMapObj.maps) {
+          const newPos = new activeMapObj.maps.LatLng(updated.lat, updated.lng);
+          activeMapObj.driverMarker.setPosition(newPos);
+          activeMapObj.map.panTo(newPos);
+        }
+      } else if (window._activeLeafletDriverMarker && window._activeLeafletMap && updated.lat && updated.lng) {
+        // Fallback to Leaflet Map Update
+        const newPos = [updated.lat, updated.lng];
+        window._activeLeafletDriverMarker.setLatLng(newPos);
+        window._activeLeafletMap.panTo(newPos);
+      }
+
       // Check arrival sound
       if (updated.status === 'delivered' && lastStatus !== 'delivered') {
         sounds?.success();
@@ -197,5 +216,6 @@ async function renderLiveTracking() {
       }
       lastStatus = updated.status;
     }
-  }, 3000);
+  });
 }
+

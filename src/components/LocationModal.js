@@ -104,6 +104,7 @@ export function createLocationModal(onChange) {
   let searchDebounce;
 
   // Mount Pin Dropper
+  let pinDropperMap = null;
   mountInteractivePinDropper(mapWrapper, {
     initialPos: { lat: activeLocation.lat || 12.9716, lng: activeLocation.lng || 77.5946, address: activeLocation.fullTitle },
     onPinChange: async (coords) => {
@@ -121,6 +122,10 @@ export function createLocationModal(onChange) {
         }
       } catch (e) {}
     }
+  }).then(res => {
+    if (res && res.map) {
+      pinDropperMap = res.map;
+    }
   });
 
   toggleMapBtn.addEventListener('click', () => {
@@ -131,60 +136,82 @@ export function createLocationModal(onChange) {
 
   // Real-Time GPS Geolocation & Reverse Geocoding
   gpsBtn.addEventListener('click', () => {
-    if (!navigator.geolocation) {
-      showToast('Geolocation is not supported by your browser', '⚠️');
-      return;
-    }
-
     gpsBtn.disabled = true;
     gpsBtn.innerHTML = `<span>🛰️</span> Locking GPS coordinates...`;
 
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const { latitude, longitude } = position.coords;
-        activeLocation.lat = latitude;
-        activeLocation.lng = longitude;
+    const handleSuccess = async (latitude, longitude) => {
+      activeLocation.lat = latitude;
+      activeLocation.lng = longitude;
 
-        try {
-          // Query OpenStreetMap Nominatim reverse geocoder
-          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`);
-          const data = await res.json();
+      if (pinDropperMap && pinDropperMap.panTo) {
+        pinDropperMap.panTo({ lat: latitude, lng: longitude });
+      } else if (window._activeLeafletPinDropperMap) {
+        window._activeLeafletPinDropperMap.panTo([latitude, longitude]);
+      }
 
-          const city = data.address.city || data.address.state_district || data.address.town || data.address.village || 'My Location';
-          const area = data.address.suburb || data.address.neighbourhood || data.address.road || city;
-          const fullTitle = `${area}, ${city}`;
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`);
+        const data = await res.json();
+        const city = data.address.city || data.address.state_district || data.address.town || data.address.village || 'My Location';
+        const area = data.address.suburb || data.address.neighbourhood || data.address.road || city;
+        const fullTitle = `${area}, ${city}`;
 
-          setLocation({
-            cityId: city.toLowerCase().replace(/\s+/g, '_'),
-            cityName: city,
-            area: area,
-            fullTitle: fullTitle,
-            lat: latitude,
-            lng: longitude
-          });
-          showToast(`📍 Real-Time GPS Locked: ${fullTitle}`, '✅', 4000);
-        } catch (e) {
-          // Fallback to coordinates
-          const fallbackTitle = `GPS (${latitude.toFixed(4)}, ${longitude.toFixed(4)})`;
-          setLocation({
-            cityId: 'gps_loc',
-            cityName: 'Current Location',
-            area: '',
-            fullTitle: fallbackTitle,
-            lat: latitude,
-            lng: longitude
-          });
-          showToast(`📍 Located at ${fallbackTitle}`, '✅');
-        } finally {
-          gpsBtn.disabled = false;
-          gpsBtn.innerHTML = `<span style="font-size: 16px;">🎯</span> Detect Live GPS Location`;
-        }
-      },
-      (error) => {
+        activeLocation.cityId = city.toLowerCase().replace(/\\s+/g, '_');
+        activeLocation.cityName = city;
+        activeLocation.area = area;
+        activeLocation.fullTitle = fullTitle;
+
+        showToast(`📍 Real-Time GPS Locked: ${fullTitle}`, '✅', 4000);
+      } catch (e) {
+        const fallbackTitle = `GPS (${latitude.toFixed(4)}, ${longitude.toFixed(4)})`;
+        activeLocation.cityId = 'gps_loc';
+        activeLocation.cityName = 'Current Location';
+        activeLocation.area = '';
+        activeLocation.fullTitle = fallbackTitle;
+        showToast(`📍 Located at ${fallbackTitle}`, '✅');
+      } finally {
         gpsBtn.disabled = false;
         gpsBtn.innerHTML = `<span style="font-size: 16px;">🎯</span> Detect Live GPS Location`;
-        showToast('Could not lock GPS. Please pick a city or tap the map.', '⚠️');
-      },
+        closeLocationModal();
+        if (onLocationChangeCb) onLocationChangeCb(activeLocation);
+      }
+    };
+
+    const handleError = () => {
+      gpsBtn.disabled = false;
+      gpsBtn.innerHTML = `<span style="font-size: 16px;">🎯</span> Detect Live GPS Location`;
+      showToast('Could not lock GPS. Please pick a city or tap the map.', '⚠️');
+    };
+
+    if (window.ReactNativeWebView) {
+      // Use Expo Native Location Bridge
+      const successListener = (e) => {
+        window.removeEventListener('nativeLocationSuccess', successListener);
+        window.removeEventListener('nativeLocationError', errorListener);
+        handleSuccess(e.detail.lat, e.detail.lng);
+      };
+      const errorListener = (e) => {
+        window.removeEventListener('nativeLocationSuccess', successListener);
+        window.removeEventListener('nativeLocationError', errorListener);
+        handleError();
+      };
+      
+      window.addEventListener('nativeLocationSuccess', successListener);
+      window.addEventListener('nativeLocationError', errorListener);
+      
+      window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'REQUEST_LOCATION' }));
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      showToast('Geolocation is not supported by your browser', '⚠️');
+      handleError();
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => handleSuccess(position.coords.latitude, position.coords.longitude),
+      (error) => handleError(),
       { timeout: 10000, enableHighAccuracy: true }
     );
   });

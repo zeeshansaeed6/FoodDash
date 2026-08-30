@@ -10,7 +10,7 @@ import {
   sendDriverDeliveryAction
 } from '../api/client.js';
 import { openRiderRegisterModal } from '../components/RiderRegisterModal.js';
-
+import { flyCoinsToDriver } from '../utils/flyingCartAnimation.js';
 export async function renderDriverPage(container, onNavigate) {
   let activeTab = 'tasks';
   let activeOrder = null;
@@ -439,9 +439,21 @@ export async function renderDriverPage(container, onNavigate) {
       const navMapContainer = pane.querySelector('#gmaps-driver-nav-container');
       if (navMapContainer) {
         mountActiveGoogleMap(navMapContainer, {
-          origin: { lat: 12.9352, lng: 77.6245, label: activeOrder.restaurantName || 'Restaurant' },
-          destination: { lat: 12.9279, lng: 77.6271, label: activeOrder.userName || 'Customer' },
-          driverPos: { lat: 12.9315, lng: 77.6258, label: currentDriver?.name || 'Rider' },
+          origin: { 
+            lat: activeOrder.restaurantLocation?.lat || 12.9352, 
+            lng: activeOrder.restaurantLocation?.lng || 77.6245, 
+            label: activeOrder.restaurantName || 'Restaurant' 
+          },
+          destination: { 
+            lat: activeOrder.customerLocation?.lat || 12.9279, 
+            lng: activeOrder.customerLocation?.lng || 77.6271, 
+            label: activeOrder.userName || 'Customer' 
+          },
+          driverPos: { 
+            lat: activeOrder.restaurantLocation?.lat || 12.9352, 
+            lng: activeOrder.restaurantLocation?.lng || 77.6245, 
+            label: currentDriver?.name || 'Rider' 
+          },
           height: '320px'
         });
       }
@@ -453,7 +465,8 @@ export async function renderDriverPage(container, onNavigate) {
         showToast(`💬 SMS sent: "${currentDriver.name} is arriving in 5 minutes with your order"`, '📩');
       });
 
-      pane.querySelector('#btn-complete-delivery')?.addEventListener('click', async () => {
+      pane.querySelector('#btn-complete-delivery')?.addEventListener('click', async (e) => {
+        flyCoinsToDriver(e);
         await sendDriverDeliveryAction(activeOrder.id, 'deliver');
         await recordDriverPayout(currentDriver.id, 60);
         showToast(`Order #${activeOrder.id.slice(-6)} Delivered! ₹60 credited to ${currentDriver.name} 🎉`, '💰', 4000);

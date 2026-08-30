@@ -13,11 +13,12 @@ import {
   setDeliverySchedule
 } from './CartState.js';
 import { showToast } from './Toast.js';
-import { getActiveLocation } from './LocationModal.js';
+import { getActiveLocation, getActiveDeliveryLocation } from './LocationModal.js';
 import { openPaymentPortal } from './PaymentModal.js';
 import { openGroupOrderModal } from './GroupOrderModal.js';
 import { getCurrentUser } from '../api/client.js';
 import { openLoginModal } from './LoginModal.js';
+import { loadGoogleMapsApi } from '../utils/googleMaps.js';
 import { sounds } from '../utils/audio.js';
 import { getFoodImage } from '../utils/foodImages.js';
 
@@ -217,6 +218,7 @@ function renderDrawerContent(onGoHome) {
       `}
     </div>
 
+    <div class="cart-drawer__scroll-area" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;">
     <!-- Live Macro Nutrition Summary Bar -->
     <div style="background: rgba(0,0,0,0.3); border-top: 1px solid var(--clr-border); border-bottom: 1px solid var(--clr-border); padding: 8px 16px; display: flex; justify-content: space-around; font-size: 11px;">
       <div><span style="color: var(--clr-text-muted);">⚡ Kcal:</span> <b style="color: #ffb703;">${macros.calories}</b></div>
@@ -263,7 +265,7 @@ function renderDrawerContent(onGoHome) {
       ` : ''}
     </div>
 
-    <div class="cart-drawer__items">
+    <div class="cart-drawer__items" style="flex: none; overflow: visible;">
       ${itemsHtml}
     </div>
 
@@ -403,6 +405,7 @@ function renderDrawerContent(onGoHome) {
       </div>
     </div>
 
+    </div> <!-- /cart-drawer__scroll-area -->
     <div class="cart-drawer__footer">
       <button class="cart-drawer__checkout-btn" id="proceed-to-pay-btn">
         <span>Proceed to Pay</span>
@@ -543,7 +546,7 @@ function renderDrawerContent(onGoHome) {
   });
 
   // Proceed to Payment Portal
-  drawerEl.querySelector('#proceed-to-pay-btn')?.addEventListener('click', () => {
+  drawerEl.querySelector('#proceed-to-pay-btn')?.addEventListener('click', async () => {
     const user = getCurrentUser();
     if (!user) {
       closeCartDrawer();
@@ -565,9 +568,66 @@ function renderDrawerContent(onGoHome) {
       spendDashCoins(coinsDiscount * 2);
     }
 
+    const checkoutBtn = drawerEl.querySelector('#proceed-to-pay-btn');
+    const loc = getActiveDeliveryLocation() || { lat: 12.9352, lng: 77.6245, fullTitle: 'Bangalore' };
+    const originalBtnText = checkoutBtn.innerHTML;
+    checkoutBtn.innerHTML = 'Locating Outlet... 🛰️';
+    checkoutBtn.disabled = true;
+
+    // Use Google Maps Places API to find a real nearby outlet
+    let realRestLoc = null;
+    try {
+      const maps = await loadGoogleMapsApi();
+      if (maps && maps.places && maps.places.PlacesService) {
+        const dummyDiv = document.createElement('div');
+        const service = new maps.places.PlacesService(dummyDiv);
+        
+        const request = {
+          location: new maps.LatLng(loc.lat, loc.lng),
+          radius: '6000', // 6km search radius
+          query: cart.restaurantName
+        };
+
+        const getPlace = () => new Promise(resolve => {
+           service.textSearch(request, (results, status) => {
+             if (status === maps.places.PlacesServiceStatus.OK && results.length > 0) {
+               resolve(results[0]);
+             } else {
+               resolve(null);
+             }
+           });
+        });
+
+        const place = await getPlace();
+        if (place && place.geometry && place.geometry.location) {
+          realRestLoc = {
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+            address: place.formatted_address || place.name
+          };
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to fetch Places API:', e);
+    }
+
+    checkoutBtn.innerHTML = originalBtnText;
+    checkoutBtn.disabled = false;
+
+    // Fallback: simulate a logical nearby location (~2km) if API key fails
+    if (!realRestLoc) {
+       realRestLoc = {
+         lat: loc.lat + 0.015,
+         lng: loc.lng + 0.012,
+         address: `${cart.restaurantName} (Nearest Outlet)`
+       };
+    }
+
     const orderPayload = {
       restaurantId: cart.restaurantId,
       restaurantName: cart.restaurantName,
+      restaurantLocation: realRestLoc,
+      customerLocation: { lat: loc.lat, lng: loc.lng, address: loc.fullTitle },
       items: cart.items,
       itemTotal: total,
       deliveryFee,

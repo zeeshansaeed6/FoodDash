@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodDash - Engineering Implementation Plan & Architecture Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #131b2e;
+      --border: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #ff6b35;
+      --primary-glow: rgba(255, 107, 53, 0.15);
+      --accent: #00f2fe;
+      --accent-glow: rgba(0, 242, 254, 0.15);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --info: #3b82f6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-primary {
+      background: var(--primary-glow);
+      color: var(--primary);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-info {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--info);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      background: rgba(11, 15, 25, 0.6);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-value {
+      color: #ffffff;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 36px 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #cbd5e1;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .tag-completed {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+    }
+
+    .tag-wip {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+    }
+
+    .tag-planned {
+      background: rgba(148, 163, 184, 0.2);
+      color: #94a3b8;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .feature-card {
+      background: rgba(11, 15, 25, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      color: #f1f5f9;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.5);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .print-btn:hover {
+      transform: translateY(-2px);
+      background: #ff5714;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+        padding: 0;
+      }
+      .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        background: transparent;
+        color: #000000;
+      }
+      .print-btn {
+        display: none;
+      }
+      h1 {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+      }
+      h2, .meta-value, .feature-title {
+        color: #000000 !important;
+      }
+      th {
+        background: #f1f5f9;
+        color: #000000;
+      }
+      td, p, .feature-desc, .meta-label {
+        color: #334155 !important;
+      }
+      .meta-grid, .feature-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge-row">
+        <span class="badge badge-primary">⚡ Project Architecture Plan</span>
+        <span class="badge badge-success">🟢 Active Sprint (v1.0.0-beta)</span>
+        <span class="badge badge-info">🚀 Full-Stack Engineering</span>
+      </div>
+      <h1>FoodDash: Engineering Implementation & Roadmap</h1>
+      <p>Modern Full-Stack Food Delivery, Social Dining & Interactive 3D Web Platform</p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">August 2026 – Present</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Current Status</div>
+          <div class="meta-value">In Progress (Active Dev)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Architecture</div>
+          <div class="meta-value">Modular Client + REST API</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Target Audience</div>
+          <div class="meta-value">Diners, Couriers & Merchants</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>📌 Executive Overview</h2>
+    <p>
+      <strong>FoodDash</strong> is built from the ground up to redefine online food ordering by combining lightweight high-speed frontend design with real-time dining features. Incorporating WebGL 3D food exploration, AI-driven macro meal planning, table booking, and group cart syncing, FoodDash serves as a comprehensive modern web ecosystem.
+    </p>
+
+    <h2>📊 Development Phases & Progress Matrix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Milestone</th>
+          <th>Status</th>
+          <th>Key Deliverables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Phase 1</strong></td>
+          <td>Client Engine & UI Design System</td>
+          <td><span class="tag tag-completed">COMPLETED</span></td>
+          <td>Dark-mode CSS, glassmorphism, responsive navigation, stories & reels bar</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2</strong></td>
+          <td>Express REST Backend & Auth</td>
+          <td><span class="tag tag-completed">COMPLETED</span></td>
+          <td>JWT authorization, Phone OTP validation, dynamic multi-city restaurant feeds</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3</strong></td>
+          <td>Three.js 3D & Particle Physics</td>
+          <td><span class="tag tag-completed">COMPLETED</span></td>
+          <td>3D food viewer, particle systems, interactive spin wheel & mystery box rewards</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 4</strong></td>
+          <td>AI Intelligence & Smart Assistant</td>
+          <td><span class="tag tag-completed">COMPLETED</span></td>
+          <td>FitMeal macro planner, voice ordering assistant, AI craving & taste match engine</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 5</strong></td>
+          <td>Marketplace & Reservations</td>
+          <td><span class="tag tag-wip">IN PROGRESS</span></td>
+          <td>Table reservations, group cart sharing, merchant portal & courier onboarding</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 6</strong></td>
+          <td>Payment Gateways & Webhooks</td>
+          <td><span class="tag tag-planned">PLANNED (Q4)</span></td>
+          <td>Stripe & Razorpay checkout integration with secure webhooks & fraud validation</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 7</strong></td>
+          <td>Live Tracking & Scaling</td>
+          <td><span class="tag tag-planned">PLANNED (Q4)</span></td>
+          <td>WebSocket bi-directional driver geolocation + Google Maps Platform routing</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>⚡ Feature Highlights & Modules</h2>
+    <div class="feature-list">
+      <div class="feature-card">
+        <div class="feature-title">
+          <span>Three.js 3D Food Inspector</span>
+          <span class="tag tag-completed">Done</span>
+        </div>
+        <div class="feature-desc">Interactive WebGL 3D rendering allowing customers to inspect dishes from 360-degree angles before ordering.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-title">
+          <span>FitMeal & AI Craving Engine</span>
+          <span class="tag tag-completed">Done</span>
+        </div>
+        <div class="feature-desc">Macro-targeted recommendations calculating proteins, carbs, and calories aligned with fitness goals.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-title">
+          <span>Group Ordering System</span>
+          <span class="tag tag-completed">Done</span>
+        </div>
+        <div class="feature-desc">Collaborative room generation enabling teams and friends to assemble a shared order with bill split calculation.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-title">
+          <span>Table Booking & Dine-in</span>
+          <span class="tag tag-wip">Sprint</span>
+        </div>
+        <div class="feature-desc">Interactive seat and slot reservation system directly integrated into restaurant profiles.</div>
+      </div>
+    </div>
+
+    <h2>🛠️ Tech Stack & Engineering Architecture</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>Technology</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Frontend</strong></td>
+          <td>JavaScript (ES6+), Vite</td>
+          <td>Clean modular architecture, ultra-fast Hot Module Replacement (HMR)</td>
+        </tr>
+        <tr>
+          <td><strong>Styling & FX</strong></td>
+          <td>Vanilla CSS3, Canvas, Three.js</td>
+          <td>Tailored HSL dark palettes, glassmorphism, 3D mesh rendering</td>
+        </tr>
+        <tr>
+          <td><strong>Backend API</strong></td>
+          <td>Node.js, Express.js</td>
+          <td>RESTful routing, controller handlers, rate limiting, and CORS security</td>
+        </tr>
+        <tr>
+          <td><strong>Authentication</strong></td>
+          <td>JWT, bcryptjs</td>
+          <td>Stateless token-based authorization and hashed credential storage</td>
+        </tr>
+        <tr>
+          <td><strong>Location Services</strong></td>
+          <td>@googlemaps/js-api-loader</td>
+          <td>Reverse geocoding and live delivery radius calculations</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">📥 Export as PDF / Print</button>
+</body>
+</html>

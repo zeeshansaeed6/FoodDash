@@ -35,7 +35,7 @@ import { renderMerchantPage } from './pages/MerchantPage.js';
 import { renderDriverPage } from './pages/DriverPage.js';
 import { renderProfilePage } from './pages/ProfilePage.js';
 import { createMobileBottomNav } from './components/MobileBottomNav.js';
-import { checkSession } from './api/client.js';
+import { checkSession, getCurrentUser, onAuthChange } from './api/client.js';
 
 // App state
 let currentPage = 'home';
@@ -168,6 +168,33 @@ function handleHashChange() {
 async function init() {
   // Check auth session
   await checkSession();
+
+  const user = getCurrentUser();
+
+  // If not authenticated, render ONLY the login page
+  if (!user) {
+    createLoginModal();
+    const loginModal = document.getElementById('login-overlay');
+    if (loginModal) {
+      loginModal.classList.add('active');
+      // Hide the close button so it's a hard wall
+      const closeBtn = document.getElementById('login-close-btn');
+      if (closeBtn) closeBtn.style.display = 'none';
+      
+      // Prevent scrolling since it's the only view
+      document.body.style.overflow = 'hidden';
+    }
+
+    // When they log in successfully, reload the page to load the full app
+    onAuthChange((newUser) => {
+      if (newUser) {
+        window.location.reload();
+      }
+    });
+
+    console.log('🔒 Auth Guard: Showing Login Page');
+    return; // Halt rendering of the rest of the app
+  }
 
   // Render navbar
   const navbar = renderNavbar(toggleCartDrawer, navigate);

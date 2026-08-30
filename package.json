@@ -4,11 +4,12 @@
   "description": "FoodDash - Fullstack Food Delivery Platform with Express Backend",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"node server/index.js\" \"vite\"",
+    "dev": "concurrently \"node server/index.js\" \"vite --host\"",
     "dev:server": "node server/index.js",
-    "dev:client": "vite",
+    "dev:client": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^2.1.1",
@@ -18,9 +19,14 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
     "three": "^0.185.1"
   },
   "devDependencies": {
-    "vite": "^6.4.3"
+    "jsdom": "^30.0.1",
+    "supertest": "^7.2.2",
+    "vite": "^6.4.3",
+    "vitest": "^4.1.11"
   }
 }

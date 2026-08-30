@@ -1,5 +1,5 @@
 import { showToast } from './Toast.js';
-import { placeOrder, getCurrentUser } from '../api/client.js';
+import { placeOrder, getCurrentUser, createPaymentIntent } from '../api/client.js';
 import { clearCart } from './CartState.js';
 import { showOrderSuccess } from './OrderSuccess.js';
 import { getActiveDeliveryLocation } from './LocationModal.js';
@@ -337,7 +337,17 @@ function renderPaymentPortal() {
     btn.disabled = true;
     btn.innerHTML = `<span>⏳ Authorizing Payment with Bank...</span>`;
 
-    const txnId = `TXN-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
+    try {
+      // Step 1: Create Payment Intent (Mock API Call)
+      const intentRes = await createPaymentIntent({ amount: currentOrderData.grandTotal, orderId: currentOrderData.id });
+      if (!intentRes || !intentRes.success) {
+        showToast('Payment gateway initialization failed.', '❌');
+        btn.disabled = false;
+        btn.innerHTML = `<span>Secure Checkout • ₹${currentOrderData.grandTotal}</span>`;
+        return;
+      }
+      
+      const txnId = intentRes.transactionId || `TXN-${Date.now()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
     const user = getCurrentUser();
     const activeLoc = getActiveDeliveryLocation() || { lat: 12.9352, lng: 77.6245, fullTitle: 'Doorstep' };
@@ -359,7 +369,6 @@ function renderPaymentPortal() {
       }
     };
 
-    setTimeout(async () => {
       try {
         let res = await placeOrder(orderPayload);
         
@@ -403,12 +412,16 @@ function renderPaymentPortal() {
         };
         closePaymentPortal();
         clearCart();
-        fireFoodConfetti();
-        playSuccessChime();
+        showToast(`Order Placed (Offline Mode) ⚡`, '✅', 4000);
         showOrderSuccess(() => {
           if (onOrderCompletedCb) onOrderCompletedCb('home');
         }, fallbackOrder);
       }
-    }, 1200);
+    } catch (outerErr) {
+      console.error('Payment Initialization Error:', outerErr);
+      showToast('Payment Processing Error', '⚠️');
+      btn.disabled = false;
+      btn.innerHTML = `<span>Secure Checkout • ₹${currentOrderData.grandTotal}</span>`;
+    }
   });
 }

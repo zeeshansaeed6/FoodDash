@@ -1,6 +1,7 @@
 // ============================================================
 // FoodDash — Frontend Unified API Client & State Manager
 // ============================================================
+import { io } from 'socket.io-client';
 
 const API_BASE = '/api';
 
@@ -119,6 +120,7 @@ export async function loginWithEmail(email, password) {
 export async function logoutUser() {
   await apiRequest('/auth/logout', { method: 'POST' });
   setAuthState(null, null);
+  window.location.reload();
 }
 
 // ----------------- Locations APIs -----------------
@@ -312,6 +314,13 @@ export async function recordDriverPayout(driverId, amount = 60) {
 }
 
 // ----------------- Restaurant Partner Operations & Analytics APIs -----------------
+export async function registerRestaurant(restaurantPayload) {
+  return apiRequest('/restaurants', {
+    method: 'POST',
+    body: JSON.stringify(restaurantPayload)
+  });
+}
+
 export async function fetchRestaurantSettings(restaurantId) {
   return apiRequest(`/restaurants/${restaurantId}/settings`);
 }
@@ -347,6 +356,22 @@ export async function queryAiFoodConcierge(prompt, location = {}) {
   });
 }
 
+// ----------------- WebSocket Engine -----------------
+let socket = null;
 
+export function getSocketConnection() {
+  if (!socket) {
+    // Vite runs on 5173, backend on 5000. Use window.location.hostname to be safe
+    socket = io(`http://${window.location.hostname}:5000`);
+  }
+  return socket;
+}
 
+// ----------------- Payments API -----------------
+export async function createPaymentIntent(paymentPayload) {
+  return apiRequest('/payments/intent', {
+    method: 'POST',
+    body: JSON.stringify(paymentPayload)
+  });
+}
 

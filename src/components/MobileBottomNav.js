@@ -23,14 +23,6 @@ export function createMobileBottomNav(onNavigate, onToggleCart) {
       <span>Cart</span>
       <span class="mobile-nav-badge" id="mob-cart-badge" style="display: none;">0</span>
     </button>
-    <button class="mobile-nav-item" data-route="merchant" id="mob-nav-merchant">
-      <span class="nav-icon">🧑‍🍳</span>
-      <span>Kitchen</span>
-    </button>
-    <button class="mobile-nav-item" data-route="driver" id="mob-nav-driver">
-      <span class="nav-icon">🛵</span>
-      <span>Rider</span>
-    </button>
     <button class="mobile-nav-item" data-route="profile" id="mob-nav-profile">
       <span class="nav-icon">👤</span>
       <span>Account</span>
@@ -56,16 +48,6 @@ export function createMobileBottomNav(onNavigate, onToggleCart) {
 
   nav.querySelector('#mob-nav-cart')?.addEventListener('click', () => {
     onToggleCart();
-  });
-
-  nav.querySelector('#mob-nav-merchant')?.addEventListener('click', () => {
-    onNavigate('merchant');
-    updateActive('merchant');
-  });
-
-  nav.querySelector('#mob-nav-driver')?.addEventListener('click', () => {
-    onNavigate('driver');
-    updateActive('driver');
   });
 
   nav.querySelector('#mob-nav-profile')?.addEventListener('click', () => {

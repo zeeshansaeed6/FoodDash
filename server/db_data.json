@@ -82,7 +82,7 @@
       "name": "Zeeshan",
       "phone": "7569748912",
       "email": "saeedzeeshan2003@gmail.com",
-      "avatar": "🧑‍💻",
+      "avatar": "👤",
       "favorites": [],
       "addresses": [],
       "createdAt": "2026-08-16T06:07:31.176Z",
@@ -100,15 +100,1183 @@
     },
     {
       "id": "usr_1787053947061_965",
-      "name": "Foodie +918912",
+      "name": "Zeeshan Saeed",
       "phone": "7567948912",
-      "email": "",
+      "email": "saeedzeeshan2003@gmail.com",
       "addresses": [],
       "createdAt": "2026-08-18T11:52:27.061Z",
+      "avatar": "🥑"
+    },
+    {
+      "id": "usr_1788070434909_646",
+      "name": "Foodie +910128",
+      "phone": "9393320128",
+      "email": "",
+      "addresses": [],
+      "createdAt": "2026-08-30T06:13:54.909Z",
       "avatar": "🥑"
     }
   ],
   "orders": [
+    {
+      "id": "FD-644934-799",
+      "createdAt": "2026-08-30T11:00:44.934Z",
+      "status": "rider_assigned",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T11:00:44.934Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T11:01:07.409Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "address": "Corner House Ice Cream (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "address": "Koramangala 4th Block, Bangalore"
+      },
+      "driverLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T11:00:44.934Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 5,
+      "restaurantName": "Corner House Ice Cream",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 503,
+          "name": "Brownie Bomb Sundae",
+          "price": 210,
+          "desc": "Fudge brownie with chocolate sauce and vanilla cream",
+          "isVeg": true,
+          "isBestseller": false,
+          "image": "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 210,
+          "customKey": "503-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 210,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 210,
+        "deliveryFee": 0,
+        "tax": 11,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 227
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-510090-261",
+      "createdAt": "2026-08-30T10:58:30.091Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T10:58:30.091Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T10:58:51.914Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-30T10:58:57.859Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "address": "Corner House Ice Cream (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "address": "Koramangala 4th Block, Bangalore"
+      },
+      "driverLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T10:58:30.091Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 5,
+      "restaurantName": "Corner House Ice Cream",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 501,
+          "name": "Death By Chocolate (DBC)",
+          "price": 240,
+          "desc": "Warm gooey chocolate fudge cake topped with vanilla ice cream, hot chocolate fudge, and roasted peanuts",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 240,
+          "customKey": "501-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 240,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 240,
+        "deliveryFee": 0,
+        "tax": 12,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 258
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-451701-707",
+      "createdAt": "2026-08-30T10:40:51.701Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T10:40:51.701Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "address": "Vidyarthi Bhavan 1943 (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "address": "Koramangala 4th Block, Bangalore"
+      },
+      "driverLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T10:40:51.701Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 2,
+      "restaurantName": "Vidyarthi Bhavan 1943",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 201,
+          "name": "Legendary Crispy Masala Dosa",
+          "price": 95,
+          "desc": "Thick golden crispy dosa roasted in pure desi ghee with spicy potato filling",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 95,
+          "customKey": "201-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 95,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 95,
+        "deliveryFee": 25,
+        "tax": 5,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 121
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-273922-202",
+      "createdAt": "2026-08-30T10:37:53.922Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T10:37:53.922Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "address": "Meghana Foods (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "address": "Koramangala 4th Block, Bangalore"
+      },
+      "driverLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T10:37:53.922Z"
+      },
+      "userId": "usr_1786860451176_7ixfrv",
+      "userName": "Zeeshan",
+      "userPhone": "7569748912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 1,
+      "restaurantName": "Meghana Foods",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 101,
+          "name": "Meghana Special Chicken Biryani",
+          "price": 340,
+          "desc": "Aromatic basmati rice topped with fiery boneless Andhra chicken fry & spiced gravy",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 340,
+          "customKey": "101-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 340,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 340,
+        "deliveryFee": 0,
+        "tax": 17,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 363
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-157652-667",
+      "createdAt": "2026-08-30T08:05:57.652Z",
+      "status": "rider_assigned",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T08:05:57.652Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T08:26:11.573Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T08:26:26.193Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 17.511079646210327,
+        "lng": 78.40187320661546,
+        "address": "Paradise Biryani (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 17.496079646210326,
+        "lng": 78.38987588882448,
+        "address": "Ward 114 KPHB Colony, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 17.511079646210327,
+        "lng": 78.40187320661546,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T08:05:57.652Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Zeeshan Saeed",
+      "userPhone": "7567948912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 2,
+      "restaurantName": "Paradise Biryani",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 201,
+          "name": "Paradise Royal Chicken Dum Biryani",
+          "price": 360,
+          "desc": "Since 1953, the iconic chicken dum biryani with layered spices, saffron, and tender meat",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 360,
+          "customKey": "201-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 360,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 360,
+        "deliveryFee": 0,
+        "tax": 18,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 384
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-906014-979",
+      "createdAt": "2026-08-30T08:01:46.014Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T08:01:46.014Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 17.51108220433369,
+        "lng": 78.40187588882448,
+        "address": "StarSpc (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 17.496079646210326,
+        "lng": 78.38987588882448,
+        "address": "Ward 114 KPHB Colony, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 17.51108220433369,
+        "lng": 78.40187588882448,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T08:01:46.014Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Zeeshan Saeed",
+      "userPhone": "7567948912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 5200,
+      "restaurantName": "StarSpc",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 52001,
+          "name": "Special Signature Dish",
+          "price": 299,
+          "desc": "Freshly prepared chef specialty",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "/images/rest1.jpg",
+          "qty": 1,
+          "unitPrice": 299,
+          "customKey": "52001-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 299,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 299,
+        "deliveryFee": 0,
+        "tax": 15,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 320
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-568472-445",
+      "createdAt": "2026-08-30T07:39:28.472Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T07:39:28.472Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T07:40:07.987Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-30T07:40:13.800Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "address": "KFC (Downtown) (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 12.935198456992113,
+        "lng": 77.62449949979784,
+        "address": "Koramangala 4th Block, Bangalore"
+      },
+      "driverLocation": {
+        "lat": 12.9502,
+        "lng": 77.6365,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T07:39:28.472Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Zeeshan Saeed",
+      "userPhone": "7567948912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 3,
+      "restaurantName": "KFC (Downtown)",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 5203,
+          "name": "Hot Wings (8 pcs)",
+          "price": 299,
+          "desc": "Spicy and crunchy chicken wings with dynamite sauce",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1576107232684-1279f3908594?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 299,
+          "customKey": "5203-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 299,
+            "macros": {
+              "calories": 480,
+              "protein": 30,
+              "carbs": 42,
+              "fats": 20
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 480,
+            "protein": 30,
+            "carbs": 42,
+            "fats": 20
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 299,
+        "deliveryFee": 0,
+        "tax": 15,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 320
+      },
+      "deliveryAddress": "Koramangala 4th Block, Bangalore",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-150413-711",
+      "createdAt": "2026-08-30T07:32:30.413Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-30T07:32:30.413Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-30T08:06:17.655Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-30T08:06:34.250Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 17.496141041161163,
+        "lng": 78.38978469371797,
+        "address": "GPS (17.4961, 78.3898)"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-30T07:32:30.413Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Zeeshan Saeed",
+      "userPhone": "7567948912",
+      "userEmail": "saeedzeeshan2003@gmail.com",
+      "restaurantId": 4,
+      "restaurantName": "Burger King (Downtown)",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 5301,
+          "name": "Crispy Veg Whopper Double",
+          "price": 189,
+          "desc": "Flame-grilled juicy veg patty with lettuce, tomatoes, creamy mayo, pickles, and sesame bun",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 189,
+          "customKey": "5301-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 189,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 189,
+        "deliveryFee": 25,
+        "tax": 9,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 229
+      },
+      "deliveryAddress": "GPS (17.4961, 78.3898)",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-062584-765",
+      "createdAt": "2026-08-29T16:31:02.584Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-29T16:31:02.584Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-29T16:31:02.584Z"
+      },
+      "userId": "guest_1788021062584",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-655592-808",
+      "createdAt": "2026-08-29T16:07:35.592Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-29T16:07:35.592Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-29T16:07:35.592Z"
+      },
+      "userId": "guest_1788019655592",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-603890-776",
+      "createdAt": "2026-08-29T16:06:43.890Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-29T16:06:43.890Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-29T16:06:43.890Z"
+      },
+      "userId": "guest_1788019603890",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-767794-171",
+      "createdAt": "2026-08-29T15:36:07.794Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-29T15:36:07.794Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 17.496276,
+        "lng": 78.39005,
+        "address": "Ward 114 KPHB Colony, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-29T15:36:07.794Z"
+      },
+      "userId": "usr_1787053947061_965",
+      "userName": "Foodie +918912",
+      "userPhone": "7567948912",
+      "userEmail": "",
+      "restaurantId": 7,
+      "restaurantName": "Chutneys",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 712,
+          "name": "Authentic Filter Coffee in Brass Cup",
+          "price": 55,
+          "desc": "Piping hot South Indian decoction coffee with frothy milk",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 55,
+          "customKey": "712-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 55,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        },
+        {
+          "id": 702,
+          "name": "MLA Pesarattu with Upma",
+          "price": 185,
+          "desc": "Crispy whole green gram crepe stuffed with seasoned rava upma and ginger allam chutney",
+          "isVeg": true,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 185,
+          "customKey": "702-{\"size\":\"Regular\",\"style\":\"Classic Traditional\",\"spice\":\"Medium Balanced 🟡\",\"dips\":[],\"addons\":[],\"preferences\":[],\"instructions\":\"\"}",
+          "customization": {
+            "size": "Regular",
+            "style": "Classic Traditional",
+            "spice": "Medium Balanced 🟡",
+            "addons": [],
+            "instructions": "",
+            "totalPrice": 185,
+            "macros": {
+              "calories": 340,
+              "protein": 14,
+              "carbs": 42,
+              "fats": 12
+            },
+            "options": {
+              "size": "Regular",
+              "style": "Classic Traditional",
+              "spice": "Medium Balanced 🟡",
+              "dips": [],
+              "addons": [],
+              "preferences": [],
+              "instructions": ""
+            }
+          },
+          "participant": "You (Host)",
+          "macros": {
+            "calories": 340,
+            "protein": 14,
+            "carbs": 42,
+            "fats": 12
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 240,
+        "deliveryFee": 0,
+        "tax": 12,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 258
+      },
+      "deliveryAddress": "Ward 114 KPHB Colony, Hyderabad",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "upi",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
     {
       "id": "FD-026431-683",
       "createdAt": "2026-08-18T11:53:46.431Z",
@@ -990,12 +2158,22 @@
     {
       "id": "FD-474368-518",
       "createdAt": "2026-08-16T06:41:14.368Z",
-      "status": "confirmed",
+      "status": "rider_assigned",
       "statusHistory": [
         {
           "status": "confirmed",
           "label": "Order Confirmed",
           "time": "2026-08-16T06:41:14.368Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status advanced to preparing by The Burger Club",
+          "time": "2026-08-30T07:39:06.160Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Status advanced to rider_assigned by The Burger Club",
+          "time": "2026-08-30T07:39:09.762Z"
         }
       ],
       "userId": "usr_1786860451176_7ixfrv",
@@ -1250,9 +2428,9 @@
       "vehicleNumber": "TS-07-FD-5544",
       "licenseNumber": "DL9999999999",
       "rating": 5,
-      "totalTrips": 1,
-      "totalEarnings": 560,
-      "status": "online",
+      "totalTrips": 4,
+      "totalEarnings": 740,
+      "status": "offline",
       "joinedAt": "2026-08-17T14:47:31.955Z",
       "avatar": "🛵",
       "isTopPerformer": false
@@ -1350,7 +2528,7 @@
   ],
   "outletSettings": {
     "1": {
-      "prepTime": "35 min",
+      "prepTime": "45 min",
       "surgeMultiplier": 1.2,
       "isOutletOpen": true,
       "rushMode": false,
@@ -1358,6 +2536,22 @@
       "outOfStockItemIds": [
         101
       ]
+    },
+    "2": {
+      "prepTime": "20-25 min",
+      "surgeMultiplier": 1,
+      "isOutletOpen": true,
+      "rushMode": false,
+      "rainSurge": false,
+      "outOfStockItemIds": []
+    },
+    "397": {
+      "prepTime": "20-25 min",
+      "surgeMultiplier": 1,
+      "isOutletOpen": true,
+      "rushMode": false,
+      "rainSurge": false,
+      "outOfStockItemIds": []
     }
   },
   "reviews": [
@@ -1425,5 +2619,46 @@
       "likes": 27
     }
   ],
-  "customRestaurants": []
+  "customRestaurants": [
+    {
+      "id": 5200,
+      "name": "StarSpc",
+      "cuisines": [
+        "South"
+      ],
+      "rating": 4.8,
+      "ratingCount": 1,
+      "deliveryTime": "25-30 min",
+      "priceForTwo": 400,
+      "deliveryFee": 0,
+      "offer": "20% OFF",
+      "image": "/images/rest1.jpg",
+      "isVeg": false,
+      "isPromoted": true,
+      "isNew": true,
+      "cityId": "hyderabad",
+      "cityName": "Hyderabad",
+      "area": "Downtown",
+      "address": "Downtown, Hyderabad",
+      "distance": "1.8 km",
+      "categories": [
+        "north-indian",
+        "pizza",
+        "biryani"
+      ],
+      "menu": {
+        "Recommended": [
+          {
+            "id": 52001,
+            "name": "Special Signature Dish",
+            "price": 299,
+            "desc": "Freshly prepared chef specialty",
+            "isVeg": true,
+            "isBestseller": true,
+            "image": "/images/rest1.jpg"
+          }
+        ]
+      }
+    }
+  ]
 }
