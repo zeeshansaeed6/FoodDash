@@ -8,6 +8,7 @@
     "dev:server": "node server/index.js",
     "dev:client": "vite --host",
     "build": "vite build",
+    "start": "node server/index.js",
     "preview": "vite preview",
     "test": "vitest run"
   },

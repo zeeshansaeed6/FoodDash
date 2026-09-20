@@ -239,7 +239,7 @@ export async function renderDriverPage(container, onNavigate) {
 
       // Fetch live orders
       try {
-        const res = await fetch('http://localhost:5000/api/orders/delivery/feed');
+        const res = await fetch('/api/orders/delivery/feed');
         const data = await res.json();
         const orders = data.orders || [];
         const availableOrders = orders.filter(o => o.status === 'confirmed' || o.status === 'preparing' || o.status === 'rider_assigned');

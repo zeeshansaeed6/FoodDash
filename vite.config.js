@@ -4,6 +4,7 @@ const customDashboardLinksPlugin = () => {
   return {
     name: 'custom-dashboard-links',
     configureServer(server) {
+      if (!server.httpServer) return;
       server.httpServer.on('listening', () => {
         const address = server.httpServer.address();
         // Always use localhost for terminal links to avoid IPv6 issues like http://::1:5173/

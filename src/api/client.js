@@ -361,8 +361,13 @@ let socket = null;
 
 export function getSocketConnection() {
   if (!socket) {
-    // Vite runs on 5173, backend on 5000. Use window.location.hostname to be safe
-    socket = io(`http://${window.location.hostname}:5000`);
+    // If running in Vite dev server (port 5173), target backend at port 5000.
+    // In production or when served from the backend, connect to window.location.origin
+    if (window.location.port === '5173') {
+      socket = io(`http://${window.location.hostname}:5000`);
+    } else {
+      socket = io();
+    }
   }
   return socket;
 }

@@ -115,9 +115,370 @@
       "addresses": [],
       "createdAt": "2026-08-30T06:13:54.909Z",
       "avatar": "🥑"
+    },
+    {
+      "id": "usr_1788150917090_658",
+      "name": "Foodie +918912",
+      "phone": "7539748912",
+      "email": "",
+      "addresses": [],
+      "createdAt": "2026-08-31T04:35:17.090Z",
+      "avatar": "🥑"
     }
   ],
   "orders": [
+    {
+      "id": "FD-756614-520",
+      "createdAt": "2026-09-20T03:42:36.614Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-09-20T03:42:36.614Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-09-20T03:42:36.614Z"
+      },
+      "userId": "guest_1789875756614",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-740339-495",
+      "createdAt": "2026-09-20T03:42:20.339Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-09-20T03:42:20.339Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-09-20T03:42:20.339Z"
+      },
+      "userId": "guest_1789875740339",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-400893-575",
+      "createdAt": "2026-09-20T03:03:20.893Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-09-20T03:03:20.893Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-09-20T03:03:20.893Z"
+      },
+      "userId": "guest_1789873400893",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-154388-348",
+      "createdAt": "2026-09-20T02:59:14.388Z",
+      "status": "confirmed",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-09-20T02:59:14.388Z"
+        }
+      ],
+      "restaurantLocation": null,
+      "customerLocation": {
+        "lat": 12.9,
+        "lng": 77.6,
+        "address": "Test"
+      },
+      "driverLocation": {
+        "lat": 12.9352,
+        "lng": 77.6245,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-09-20T02:59:14.388Z"
+      },
+      "userId": "guest_1789873154388",
+      "userName": "Valued Customer",
+      "userPhone": "+91 98765 00000",
+      "userEmail": "",
+      "restaurantId": 1,
+      "restaurantName": "Test Restaurant",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": "101",
+          "name": "Test Item",
+          "price": 100,
+          "qty": 1
+        }
+      ],
+      "bill": {
+        "itemTotal": 0,
+        "deliveryFee": 0,
+        "tax": 0,
+        "platformFee": 6,
+        "tip": 0,
+        "discount": 0,
+        "grandTotal": 0
+      },
+      "deliveryAddress": "Current Location",
+      "deliveryInstruction": "Leave at door",
+      "paymentMethod": "card",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Ramesh Kumar",
+        "phone": "+91 98765 43210",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
+    {
+      "id": "FD-084527-780",
+      "createdAt": "2026-08-31T04:38:04.527Z",
+      "status": "delivered",
+      "statusHistory": [
+        {
+          "status": "confirmed",
+          "label": "Order Confirmed",
+          "time": "2026-08-31T04:38:04.527Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Siddharth Rao",
+          "time": "2026-08-31T04:39:09.611Z"
+        },
+        {
+          "status": "delivered",
+          "label": "Order successfully delivered to customer doorstep!",
+          "time": "2026-08-31T04:39:25.097Z"
+        }
+      ],
+      "restaurantLocation": {
+        "lat": 17.447474361349958,
+        "lng": 78.45722159909434,
+        "address": "Rayalaseema Ruchulu (Nearest Outlet)"
+      },
+      "customerLocation": {
+        "lat": 17.432474361349957,
+        "lng": 78.44522159909434,
+        "address": "Somajiguda, Hyderabad"
+      },
+      "driverLocation": {
+        "lat": 17.447474361349958,
+        "lng": 78.45722159909434,
+        "speed": 28,
+        "heading": 45,
+        "updatedAt": "2026-08-31T04:38:04.527Z"
+      },
+      "userId": "usr_1788150917090_658",
+      "userName": "Foodie +918912",
+      "userPhone": "7539748912",
+      "userEmail": "",
+      "restaurantId": 8,
+      "restaurantName": "Rayalaseema Ruchulu",
+      "restaurantAddress": "",
+      "cityName": "Bangalore",
+      "items": [
+        {
+          "id": 803,
+          "name": "Ulavacharu Chicken Dum Biryani",
+          "price": 360,
+          "desc": "Biryani cooked with traditional horse gram (Ulavacharu) reduction and tender chicken",
+          "isVeg": false,
+          "isBestseller": true,
+          "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80",
+          "qty": 1,
+          "unitPrice": 360,
+          "customKey": "803-{\"size\":\"Solo / Small\",\"style\":\"Classic Traditional\",\"spice\":\"Ghost Pepper 💀\",\"dips\":[],\"addons\":[],\"preferences\":[\"🥗 Less Oil & Light Salt\"],\"instructions\":\"🥗 Less Oil & Light Salt\"}",
+          "customization": {
+            "size": "Solo / Small",
+            "style": "Classic Traditional",
+            "spice": "Ghost Pepper 💀",
+            "addons": [],
+            "instructions": "🥗 Less Oil & Light Salt",
+            "totalPrice": 360,
+            "macros": {
+              "calories": 384,
+              "protein": 24,
+              "carbs": 34,
+              "fats": 16
+            },
+            "options": {
+              "size": "Solo / Small",
+              "style": "Classic Traditional",
+              "spice": "Ghost Pepper 💀",
+              "dips": [],
+              "addons": [],
+              "preferences": [
+                "🥗 Less Oil & Light Salt"
+              ],
+              "instructions": "🥗 Less Oil & Light Salt"
+            }
+          },
+          "participant": null,
+          "macros": {
+            "calories": 384,
+            "protein": 24,
+            "carbs": 34,
+            "fats": 16
+          }
+        }
+      ],
+      "bill": {
+        "itemTotal": 360,
+        "deliveryFee": 0,
+        "tax": 18,
+        "platformFee": 6,
+        "tip": 30,
+        "discount": 150,
+        "grandTotal": 254
+      },
+      "deliveryAddress": "Somajiguda, Hyderabad",
+      "deliveryInstruction": "Avoid calling",
+      "paymentMethod": "cod",
+      "estimatedDeliveryMins": 25,
+      "driver": {
+        "name": "Siddharth Rao",
+        "phone": "+91 99001 22334",
+        "rating": 4.9,
+        "vehicle": "Hero Electric (KA-01-FD-2026)"
+      }
+    },
     {
       "id": "FD-644934-799",
       "createdAt": "2026-08-30T11:00:44.934Z",
@@ -132,6 +493,11 @@
           "status": "rider_assigned",
           "label": "Delivery accepted by partner Siddharth Rao",
           "time": "2026-08-30T11:01:07.409Z"
+        },
+        {
+          "status": "rider_assigned",
+          "label": "Delivery accepted by partner Mohammed Farhan",
+          "time": "2026-08-31T04:59:40.933Z"
         }
       ],
       "restaurantLocation": {
@@ -217,8 +583,8 @@
       "paymentMethod": "cod",
       "estimatedDeliveryMins": 25,
       "driver": {
-        "name": "Siddharth Rao",
-        "phone": "+91 99001 22334",
+        "name": "Mohammed Farhan",
+        "phone": "+91 98334 11223",
         "rating": 4.9,
         "vehicle": "Hero Electric (KA-01-FD-2026)"
       }
@@ -436,12 +802,17 @@
     {
       "id": "FD-273922-202",
       "createdAt": "2026-08-30T10:37:53.922Z",
-      "status": "confirmed",
+      "status": "preparing",
       "statusHistory": [
         {
           "status": "confirmed",
           "label": "Order Confirmed",
           "time": "2026-08-30T10:37:53.922Z"
+        },
+        {
+          "status": "preparing",
+          "label": "Status advanced to preparing by Spice Garden",
+          "time": "2026-08-31T04:38:51.554Z"
         }
       ],
       "restaurantLocation": {
@@ -2428,8 +2799,8 @@
       "vehicleNumber": "TS-07-FD-5544",
       "licenseNumber": "DL9999999999",
       "rating": 5,
-      "totalTrips": 4,
-      "totalEarnings": 740,
+      "totalTrips": 5,
+      "totalEarnings": 800,
       "status": "offline",
       "joinedAt": "2026-08-17T14:47:31.955Z",
       "avatar": "🛵",

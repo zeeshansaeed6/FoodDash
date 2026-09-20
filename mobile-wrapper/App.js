@@ -7,7 +7,7 @@ import { useRef } from 'react';
 export default function App() {
   // Pointing to your computer's local IP address where Vite is running.
   // Make sure your phone and computer are on the same Wi-Fi network.
-  const WEB_APP_URL = 'http://192.168.1.2:5173';
+  const WEB_APP_URL = 'http://10.251.69.134:5173';
   const webviewRef = useRef(null);
 
   const onMessage = async (event) => {

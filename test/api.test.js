@@ -70,4 +70,41 @@ describe('FoodDash Backend API Tests', () => {
     expect(res.body).toHaveProperty('clientSecret');
     expect(res.body).toHaveProperty('transactionId');
   });
+
+  it('POST /api/ai/concierge should return smart food recommendations', async () => {
+    const res = await request(app)
+      .post('/api/ai/concierge')
+      .send({ prompt: 'I want something spicy for dinner', cityId: 'bangalore' });
+    
+    expect(res.statusCode).toEqual(200);
+    expect(res.body.success).toBe(true);
+    expect(res.body).toHaveProperty('aiMessage');
+    expect(Array.isArray(res.body.topDishes)).toBe(true);
+  });
+
+  it('GET /api/orders/delivery/feed should return live orders for riders', async () => {
+    const res = await request(app).get('/api/orders/delivery/feed');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body.success).toBe(true);
+    expect(Array.isArray(res.body.orders)).toBe(true);
+  });
+
+  it('GET /api/orders/merchant/all should return merchant kitchen orders', async () => {
+    const res = await request(app).get('/api/orders/merchant/all');
+    expect(res.statusCode).toEqual(200);
+    expect(res.body.success).toBe(true);
+    expect(Array.isArray(res.body.orders)).toBe(true);
+  });
+
+  it('GET / should serve the frontend SPA index.html', async () => {
+    const res = await request(app).get('/');
+    expect(res.statusCode).toEqual(200);
+    expect(res.headers['content-type']).toMatch(/html/);
+  });
+
+  it('GET /api/invalid-route should return 404 JSON', async () => {
+    const res = await request(app).get('/api/invalid-route');
+    expect(res.statusCode).toEqual(404);
+    expect(res.body.success).toBe(false);
+  });
 });

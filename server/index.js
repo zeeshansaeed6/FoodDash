@@ -4,6 +4,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
 import authRoutes from './routes/auth.js';
 import locationRoutes from './routes/locations.js';
 import restaurantRoutes from './routes/restaurants.js';
@@ -60,10 +63,26 @@ app.use('/api/drivers', driverRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/payments', paymentRoutes);
 
-// 404 Fallback for API
-app.use((req, res) => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.resolve(__dirname, '..', 'dist');
+
+// Serve static frontend assets if built
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+}
+
+// 404 Fallback for API routes
+app.all('/api/*', (req, res) => {
   res.status(404).json({ success: false, message: `API endpoint ${req.originalUrl} not found` });
 });
+
+// SPA fallback for all web pages
+if (fs.existsSync(distPath)) {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
 
 // WebSockets Logic
 io.on('connection', (socket) => {
